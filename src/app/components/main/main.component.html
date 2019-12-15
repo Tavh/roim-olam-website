@@ -1,1 +1,2 @@
-<app-view-desktop></app-view-desktop>
+<app-view-desktop *ngIf="this.currentDevice == 'desktop'"></app-view-desktop>
+<app-view-mobile *ngIf="this.currentDevice == 'mobile'"></app-view-mobile>
