@@ -4,3 +4,8 @@
     list-style: none;
     text-decoration: none;  
 }
+
+@font-face {
+    font-family: dina;
+    src: url(assets/fonts/Dina_TalBal.otf) format("opentype");
+}
