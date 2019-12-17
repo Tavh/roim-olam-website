@@ -1,0 +1,17 @@
+#menu_container {
+    float: right;
+    padding-top: 40px;
+}
+
+
+.drop_down {
+    text-align: left;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 16px;
+    border-width: 1px;
+    padding: 9px;
+    border-style: solid;
+    border-color: rgb(72, 70, 88);
+    cursor: pointer;
+}

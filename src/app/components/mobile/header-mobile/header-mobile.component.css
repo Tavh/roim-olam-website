@@ -1,0 +1,13 @@
+#logo_container {
+    cursor: pointer;
+    height: 100%;
+    display: table;
+    float: left;
+    padding-left: 25px;
+}
+
+#logo_container > img {
+    vertical-align: middle;
+    padding-top: 40%;
+    padding: right;
+}
