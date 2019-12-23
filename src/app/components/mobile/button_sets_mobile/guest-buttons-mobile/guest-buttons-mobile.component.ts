@@ -9,6 +9,10 @@ export class GuestButtonsMobileComponent implements OnInit {
 
   constructor() { }
 
+  public toggleMenuButton(arg) {
+    arg.classList.toggle("change")
+  }
+
   ngOnInit() {
   }
 
