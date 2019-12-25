@@ -1,5 +1,5 @@
 <span id="menu_container">
-    <input type="checkbox" id="toggler">
+    <input type="checkbox" id="toggler" (click)="closeSubMenus()">
     <button class=hamburger>
         <div></div>
     </button>
@@ -7,8 +7,24 @@
     <div class="menu">
         <ul>
             <li><a href="#">בית</a></li>
-            <li><a href="#">משקפיים</a></li>
-            <li><a href="#">עדשות</a></li>
+
+            <li>
+                <a href="#" (click)="changeGlassesMenuVisibility()">משקפיים</a>
+
+                <ul class="sub_menu" *ngIf="this.isViewGlassesMenu == true">
+                    <li><a href="#" (click)="closeMenu()">משקפי שמש</a></li>
+                    <li><a href="#" (click)="closeMenu()">משקפי ראייה</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#" (click)="changeLensesMenuVisibility()">עדשות</a>
+                
+                <ul class="sub_menu" *ngIf="this.isViewLensesMenu == true">
+                    <li><a href="#" (click)="closeMenu()">עדשות מגע</a></li>
+                    <li><a href="#" (click)="closeMenu()">עדשות למשקפיים</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </span>

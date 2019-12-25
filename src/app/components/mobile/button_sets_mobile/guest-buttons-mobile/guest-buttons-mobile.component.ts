@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 
 @Component({
   selector: 'app-guest-buttons-mobile',
@@ -7,13 +8,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuestButtonsMobileComponent implements OnInit {
 
-  constructor() { }
+    private isViewGlassesMenu: boolean;
+    private isViewLensesMenu: boolean;
 
-  public toggleMenuButton(arg) {
-    arg.classList.toggle("change")
-  }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    changeGlassesMenuVisibility() {
+        if (this.isViewGlassesMenu == true) {
+            this.isViewGlassesMenu = false
+        } else {
+            this.isViewLensesMenu = false
+            this.isViewGlassesMenu = true
+        }
+    }
+
+    changeLensesMenuVisibility() {
+        if (this.isViewLensesMenu == true) {
+            this.isViewLensesMenu = false
+        } else {
+            this.isViewGlassesMenu = false
+            this.isViewLensesMenu = true
+        }
+    }
+
+    closeMenu() {
+        let menuToggler = document.getElementById("toggler")
+        let menu = document.getElementById("menu")
+
+        this.isViewGlassesMenu = false
+        this.isViewLensesMenu = false
+
+        menuToggler.click()
+        menu.style.visibility = "hidden"
+    }
+
+    closeSubMenus() {
+        this.isViewGlassesMenu = false
+        this.isViewLensesMenu = false
+    }
+
+    ngOnInit() {
+    }
 
 }

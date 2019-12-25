@@ -62,10 +62,9 @@
     transform: rotate(90deg);
 }
 
-  /* Show Menu */
 #toggler:checked ~ .menu {
     visibility: visible;
-    /* width: 140px; */
+    width: 50%;
 }
 
 .menu {
@@ -75,18 +74,29 @@
     visibility: hidden;
     background-color: rgb(36, 36, 36);
     padding-top: 70px;
-    /* width: 0;
-    transition: 0.4s; */
+    width: 0;
+    transition: 0.4s;
 }
 
 .menu a {
-    padding: 8px 30px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
+    float: middle;
+    margin-left: 20px;
+    padding: 20px 20px 8px 32px;
+    font-size: 28px;
     color: #ffffff;
     display: block;
-    margin-top: 10px;
 }
 
-.menu a:hover { opacity: 40%; }
-  
+.sub_menu {
+    float: right;
+    z-index: 2;
+    background-color: inherit;
+}
+
+.sub_menu a {
+    float: right;
+    padding: 8px 30px 8px 32px;
+    font-size: 20px;
+    color: #ffffff;
+
+}
