@@ -81,10 +81,7 @@
 }
 
 .menu > ul > li > a {
-    float: middle;
-    margin-left: 20px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-left: 20%;
     padding: 20px 20px 8px 32px;
     font-size: 28px;
     color: #ffffff;
@@ -105,9 +102,13 @@
 .sub_menu > li > a {
     visibility: inherit;
     float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
     padding: 8px 30px 8px 32px;
     font-size: 18px;
     color: #ffffff;
-    margin-top: 5px;
-    margin-bottom: 5px;
+}
+
+.sub_menu:last-child {
+    margin-bottom: 18px;
 }
