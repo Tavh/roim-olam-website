@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-guest-buttons-mobile',
@@ -26,15 +26,17 @@ export class GuestButtonsMobileComponent implements OnInit {
     }
 
     private viewSubMenu(subMenu) {
-        subMenu.style.visibility = "visible";
-        subMenu.style.maxHeight = "200px";
+        subMenu.style.opacity = "100%"
+        subMenu.style.visibility = "visible"
+        subMenu.style.maxHeight = "200px"
 
         this.closeSubMenus(subMenu)
     }
 
     private hideSubMenu(subMenu) {
-        subMenu.style.visibility = "hidden";
-        subMenu.style.maxHeight = "0px";
+        subMenu.style.opacity = "0%"
+        subMenu.style.visibility = "hidden"
+        subMenu.style.maxHeight = "0px"
     }
 
     closeSubMenus(excludedElement?) {
@@ -44,7 +46,7 @@ export class GuestButtonsMobileComponent implements OnInit {
             if (subMenu != excludedElement) {
                 this.hideSubMenu(subMenu)
             }
-        });
+        })
     }
 
     closeMenu() {
