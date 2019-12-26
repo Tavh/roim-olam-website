@@ -33,13 +33,11 @@ export class GuestButtonsMobileComponent implements OnInit {
 
     closeMenu() {
         let menuToggler = document.getElementById("toggler")
-        let menu = document.getElementById("menu")
 
         this.isViewGlassesMenu = false
         this.isViewLensesMenu = false
 
         menuToggler.click()
-        menu.style.visibility = "hidden"
     }
 
     closeSubMenus() {
