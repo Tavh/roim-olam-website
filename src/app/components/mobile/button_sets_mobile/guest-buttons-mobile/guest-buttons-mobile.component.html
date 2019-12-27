@@ -7,23 +7,23 @@
     <div class="menu">
         <ul>
             <li><a href="#" (click)="closeMenu()" routerLink="/home">בית</a></li>
-            <li><a href="#" (click)="closeMenu()">צור&nbsp;קשר</a></li>
+            <li><a href="#" (click)="closeMenu()" routerLink="/contact-us-mobile">צור&nbsp;קשר</a></li>
             
             <li>
-                <a href="#" (click)='changeSubMenuState("glasses_sub_menu")' routerLink=''>משקפיים</a>
+                <a (click)='changeSubMenuState("glasses_sub_menu")'>משקפיים</a>
 
                 <ul id="glasses_sub_menu" class="sub_menu">
-                    <li><a href="#" (click)="closeMenu()">משקפי&nbsp;שמש</a></li>
-                    <li><a href="#" (click)="closeMenu()">משקפי&nbsp;ראייה</a></li>
+                    <li><a href="#" (click)="closeMenu()" routerLink='/eye-glasses-mobile'>משקפי&nbsp;ראייה</a></li>
+                    <li><a href="#" (click)="closeMenu()" routerLink='/sun-glasses-mobile'>משקפי&nbsp;שמש</a></li>
                 </ul>
             </li>
             
             <li>
-                <a href="#" (click)='changeSubMenuState("lenses_sub_menu")' routerLink=''>עדשות</a>
+                <a (click)='changeSubMenuState("lenses_sub_menu")' >עדשות</a>
                 
                 <ul id="lenses_sub_menu" class="sub_menu">
-                    <li><a href="#" (click)="closeMenu()">עדשות&nbsp;מגע</a></li>
-                    <li><a href="#" (click)="closeMenu()">עדשות&nbsp;למשקפיים</a></li>
+                    <li><a href="#" (click)="closeMenu()" routerLink='/contact-lenses-mobile'>עדשות&nbsp;מגע</a></li>
+                    <li><a href="#" (click)="closeMenu()" routerLink='/glass-lenses-mobile'>עדשות&nbsp;למשקפיים</a></li>
                 </ul>
             </li>
         </ul>

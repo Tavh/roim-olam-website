@@ -12,9 +12,19 @@ import { ViewMobileComponent } from './components/views/view-mobile/view-mobile.
 import { HeaderMobileComponent } from './components/mobile/header-mobile/header-mobile.component';
 import { GuestButtonsMobileComponent } from './components/mobile/button_sets_mobile/guest-buttons-mobile/guest-buttons-mobile.component';
 import { HomeComponent } from './components/mobile/home/home.component';
+import { EyeGlassesMobileComponent } from './components/mobile/catalogs/eye-glasses-mobile/eye-glasses-mobile.component';
+import { SunGlassesMobileComponent } from './components/mobile/catalogs/sun-glasses-mobile/sun-glasses-mobile.component';
+import { ContactUsMobileComponent } from './components/mobile/contact-us-mobile/contact-us-mobile.component';
+import { ContactLensesMobileComponent } from './components/mobile/catalogs/contact-lenses-mobile/contact-lenses-mobile.component';
+import { GlassLensesMobileComponent } from './components/mobile/catalogs/glass-lenses-mobile/glass-lenses-mobile.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
+    { path: 'contact-us-mobile', component: ContactUsMobileComponent },
+    { path: 'eye-glasses-mobile', component: EyeGlassesMobileComponent },
+    { path: 'sun-glasses-mobile', component: SunGlassesMobileComponent },
+    { path: 'contact-lenses-mobile', component: ContactLensesMobileComponent },
+    { path: 'glass-lenses-mobile', component: GlassLensesMobileComponent },
     { path: '',
       redirectTo: '/home',
       pathMatch: 'full'
@@ -31,7 +41,12 @@ const appRoutes: Routes = [
     ViewMobileComponent,
     HeaderMobileComponent,
     GuestButtonsMobileComponent,
-    HomeComponent
+    HomeComponent,
+    EyeGlassesMobileComponent,
+    SunGlassesMobileComponent,
+    ContactUsMobileComponent,
+    ContactLensesMobileComponent,
+    GlassLensesMobileComponent
   ],
   imports: [
     BrowserModule,
