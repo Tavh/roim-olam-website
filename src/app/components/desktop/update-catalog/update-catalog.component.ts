@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CatalogService } from 'src/app/shared/services/http-constructors/catalog.service';
 import { CatalogItem } from 'src/app/shared/data/catalog-item.model';
+import { GeneralConstants } from 'src/app/shared/constants/general-constants.model';
 
 @Component({
   selector: 'app-update-catalog',
@@ -31,6 +32,13 @@ export class UpdateCatalogComponent implements OnInit {
   
       var catalogItem = new CatalogItem(this.title, this.price, this.amountInStock, this.description, this.itemType, this.photo.name)
       
+      let photoName = this.photo.name
+
+      if (!photoName.includes(GeneralConstants.JPG_POSTFIX) && !photoName.includes(GeneralConstants.JPEG_POSTFIX)) {
+          this.errorMessage = "Please use only JPG photos"
+          this.isDisplayError = true
+      }
+
       const uploadPhotoObservable =  this.catalogService.uploadCatalogItemPhoto(this.photo);
       uploadPhotoObservable.subscribe(
         res => {
