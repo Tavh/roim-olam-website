@@ -4,7 +4,6 @@
 
 #image_slider {
     position: relative;
-    padding-top: 5%;
 }
   
 .slide_image {
@@ -88,17 +87,15 @@
 
     
     #left_slide_button {
+        cursor: pointer;
         position: absolute;
-        /* margin-top: -19%;
-        margin-left: 18%; */
         bottom: 45%;
         left: 8%;
     }
     
     #right_slide_button {
+        cursor: pointer;
         position: absolute;
-        /* margin-top: -19%;
-        margin-right: 18%; */
         bottom: 45%;
         right: 8%;
     }
