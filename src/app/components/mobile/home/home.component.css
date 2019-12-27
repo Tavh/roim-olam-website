@@ -1,5 +1,8 @@
+#home_text > * {
+    text-align: center;
+}
 #image_slider {
-    padding-top: 40%;
+    padding-top: 5%;
 }
 
 .slide_image {
