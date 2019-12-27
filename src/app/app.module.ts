@@ -7,11 +7,11 @@ import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { HeaderDesktopComponent } from './components/desktop/header-desktop/header-desktop.component';
-import { GuestButtonsDesktopComponent } from './components/desktop/button_sets_desktop/guest-buttons-desktop/guest-buttons-desktop.component';
+import { ButtonsDesktopComponent } from './components/desktop/button_sets_desktop/buttons-desktop/buttons-desktop.component';
 import { ViewDesktopComponent } from './components/views/view-desktop/view-desktop.component';
 import { ViewMobileComponent } from './components/views/view-mobile/view-mobile.component';
 import { HeaderMobileComponent } from './components/mobile/header-mobile/header-mobile.component';
-import { GuestButtonsMobileComponent } from './components/mobile/button_sets_mobile/guest-buttons-mobile/guest-buttons-mobile.component';
+import { ButtonsMobileComponent } from './components/mobile/button_sets_mobile/buttons-mobile/buttons-mobile.component';
 import { HomeComponent } from './components/home/home.component';
 import { EyeGlassesMobileComponent } from './components/mobile/catalogs/eye-glasses-mobile/eye-glasses-mobile.component';
 import { SunGlassesMobileComponent } from './components/mobile/catalogs/sun-glasses-mobile/sun-glasses-mobile.component';
@@ -42,11 +42,11 @@ const appRoutes: Routes = [
     AppComponent,
     MainComponent,
     HeaderDesktopComponent,
-    GuestButtonsDesktopComponent,
+    ButtonsDesktopComponent,
     ViewDesktopComponent,
     ViewMobileComponent,
     HeaderMobileComponent,
-    GuestButtonsMobileComponent,
+    ButtonsMobileComponent,
     HomeComponent,
     EyeGlassesMobileComponent,
     SunGlassesMobileComponent,
@@ -67,3 +67,4 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

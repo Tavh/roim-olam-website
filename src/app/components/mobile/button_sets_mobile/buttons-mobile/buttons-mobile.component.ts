@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'app-guest-buttons-mobile',
-  templateUrl: './guest-buttons-mobile.component.html',
-  styleUrls: ['./guest-buttons-mobile.component.css']
+  selector: 'app-buttons-mobile',
+  templateUrl: './buttons-mobile.component.html',
+  styleUrls: ['./buttons-mobile.component.css']
 })
-export class GuestButtonsMobileComponent implements OnInit {
+export class ButtonsMobileComponent implements OnInit {
 
     
     constructor() { }
