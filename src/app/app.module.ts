@@ -8,6 +8,7 @@ import { ViewDesktopComponent } from './components/views/view-desktop/view-deskt
 import { ViewMobileComponent } from './components/views/view-mobile/view-mobile.component';
 import { HeaderMobileComponent } from './components/mobile/header-mobile/header-mobile.component';
 import { GuestButtonsMobileComponent } from './components/mobile/button_sets_mobile/guest-buttons-mobile/guest-buttons-mobile.component';
+import { HomeComponent } from './components/mobile/home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GuestButtonsMobileComponent } from './components/mobile/button_sets_mob
     ViewDesktopComponent,
     ViewMobileComponent,
     HeaderMobileComponent,
-    GuestButtonsMobileComponent
+    GuestButtonsMobileComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule

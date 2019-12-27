@@ -9,3 +9,8 @@
     font-family: dina;
     src: url(assets/fonts/Dina_TalBal.otf) format("opentype");
 }
+
+@font-face {
+    font-family: rubik;
+    src: url(assets/fonts/Rubik-Regular.ttf) format("opentype");
+}

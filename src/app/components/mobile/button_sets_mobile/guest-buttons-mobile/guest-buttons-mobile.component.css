@@ -83,10 +83,11 @@
 .menu > ul > li > a {
     margin-left: 10%;
     padding: 20px 20px 8px 32px;
-    font-size: 28px;
+    font-size: 24px;
     color: #ffffff;
     display: block;
     transition: 0.4s;
+    font-family: rubik;
 }
 
 .sub_menu {
@@ -104,13 +105,12 @@
 .sub_menu > li > a {
     visibility: inherit;
     float: right;
-    margin-top: 5px;
-    margin-bottom: 5px;
     padding: 8px 30px 8px 32px;
-    font-size: 18px;
+    font-size: 16px;
     color: #ffffff;
+    font-family: rubik;
 }
 
 .sub_menu:last-child {
-    margin-bottom: 18px;
+    margin-bottom: 8px;
 }
