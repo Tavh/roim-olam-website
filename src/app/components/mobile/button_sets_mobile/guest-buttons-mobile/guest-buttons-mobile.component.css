@@ -105,6 +105,7 @@
 }
 
 .sub_menu > li > a {
+    margin-right: 5%;
     visibility: inherit;
     float: right;
     padding: 8px 30px 8px 32px;
