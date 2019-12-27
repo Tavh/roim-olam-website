@@ -64,7 +64,7 @@
 
 #toggler:checked ~ .menu {
     visibility: visible;
-    width: 60%;
+    width: 55%;
 }
 
 .menu {
@@ -81,7 +81,9 @@
 }
 
 .menu > ul > li > a {
-    margin-left: 10%;
+    text-align: right;
+
+    margin-left: 20%;
     padding: 20px 20px 8px 32px;
     font-size: 24px;
     color: #ffffff;
