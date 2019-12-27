@@ -6,11 +6,11 @@
 
     <div class="menu">
         <ul>
-            <li><a href="#" (click)="closeMenu()">בית</a></li>
+            <li><a href="#" (click)="closeMenu()" routerLink="/home">בית</a></li>
             <li><a href="#" (click)="closeMenu()">צור&nbsp;קשר</a></li>
             
             <li>
-                <a href="#" (click)='changeSubMenuState("glasses_sub_menu")'>משקפיים</a>
+                <a href="#" (click)='changeSubMenuState("glasses_sub_menu")' routerLink=''>משקפיים</a>
 
                 <ul id="glasses_sub_menu" class="sub_menu">
                     <li><a href="#" (click)="closeMenu()">משקפי&nbsp;שמש</a></li>
@@ -19,7 +19,7 @@
             </li>
             
             <li>
-                <a href="#" (click)='changeSubMenuState("lenses_sub_menu")'>עדשות</a>
+                <a href="#" (click)='changeSubMenuState("lenses_sub_menu")' routerLink=''>עדשות</a>
                 
                 <ul id="lenses_sub_menu" class="sub_menu">
                     <li><a href="#" (click)="closeMenu()">עדשות&nbsp;מגע</a></li>

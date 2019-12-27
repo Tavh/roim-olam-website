@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { HeaderDesktopComponent } from './components/desktop/header-desktop/header-desktop.component';
@@ -9,6 +12,14 @@ import { ViewMobileComponent } from './components/views/view-mobile/view-mobile.
 import { HeaderMobileComponent } from './components/mobile/header-mobile/header-mobile.component';
 import { GuestButtonsMobileComponent } from './components/mobile/button_sets_mobile/guest-buttons-mobile/guest-buttons-mobile.component';
 import { HomeComponent } from './components/mobile/home/home.component';
+
+const appRoutes: Routes = [
+    { path: 'home', component: HomeComponent },
+    { path: '',
+      redirectTo: '/home',
+      pathMatch: 'full'
+    }
+  ];
 
 @NgModule({
   declarations: [
@@ -23,7 +34,10 @@ import { HomeComponent } from './components/mobile/home/home.component';
     HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
