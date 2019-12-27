@@ -12,15 +12,15 @@ import { ViewDesktopComponent } from './components/views/view-desktop/view-deskt
 import { ViewMobileComponent } from './components/views/view-mobile/view-mobile.component';
 import { HeaderMobileComponent } from './components/mobile/header-mobile/header-mobile.component';
 import { GuestButtonsMobileComponent } from './components/mobile/button_sets_mobile/guest-buttons-mobile/guest-buttons-mobile.component';
-import { HomeComponent } from './components/mobile/home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { EyeGlassesMobileComponent } from './components/mobile/catalogs/eye-glasses-mobile/eye-glasses-mobile.component';
 import { SunGlassesMobileComponent } from './components/mobile/catalogs/sun-glasses-mobile/sun-glasses-mobile.component';
 import { ContactUsMobileComponent } from './components/mobile/contact-us-mobile/contact-us-mobile.component';
 import { ContactLensesMobileComponent } from './components/mobile/catalogs/contact-lenses-mobile/contact-lenses-mobile.component';
 import { GlassLensesMobileComponent } from './components/mobile/catalogs/glass-lenses-mobile/glass-lenses-mobile.component';
 import { UpdateCatalogComponent } from './components/desktop/update-catalog/update-catalog.component';
-import { LoginDesktopComponent } from './components/desktop/login-desktop/login-desktop.component';
-import { LogoutDesktopComponent } from './components/desktop/logout-desktop/logout-desktop.component';
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -30,7 +30,7 @@ const appRoutes: Routes = [
     { path: 'contact-lenses-mobile', component: ContactLensesMobileComponent },
     { path: 'glass-lenses-mobile', component: GlassLensesMobileComponent },
     { path: 'update-catalog', component: UpdateCatalogComponent },
-    { path: 'login', component: LoginDesktopComponent },
+    { path: 'login', component: LoginComponent },
     { path: '',
       redirectTo: '/home',
       pathMatch: 'full'
@@ -54,8 +54,8 @@ const appRoutes: Routes = [
     ContactLensesMobileComponent,
     GlassLensesMobileComponent,
     UpdateCatalogComponent,
-    LoginDesktopComponent,
-    LogoutDesktopComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

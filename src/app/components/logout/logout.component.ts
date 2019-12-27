@@ -6,11 +6,11 @@ import { SessionStorageManager } from 'src/app/shared/session-storage-manager';
 import { AuthenticationConstants } from 'src/app/shared/constants/authentication-constants.model';
 
 @Component({
-  selector: 'app-logout-desktop',
-  templateUrl: './logout-desktop.component.html',
-  styleUrls: ['./logout-desktop.component.css']
+  selector: 'app-logout',
+  templateUrl: './logout.component.html',
+  styleUrls: ['./logout.component.css']
 })
-export class LogoutDesktopComponent implements OnInit {
+export class LogoutComponent implements OnInit {
 
     sessionUserDetails: UserDetails
 

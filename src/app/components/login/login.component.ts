@@ -6,11 +6,11 @@ import { AuthenticationService } from 'src/app/shared/services/http-constructors
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login-desktop',
-  templateUrl: './login-desktop.component.html',
-  styleUrls: ['./login-desktop.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginDesktopComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
     isDisplayError: boolean
     errorMessage: string
