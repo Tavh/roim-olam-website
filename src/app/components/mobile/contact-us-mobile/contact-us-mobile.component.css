@@ -1,0 +1,7 @@
+.multiline {
+    white-space: pre-wrap;
+}
+
+#contact_us_text > * {
+    text-align: center;
+}
