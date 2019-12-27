@@ -1,0 +1,56 @@
+#image_slider {
+    padding-top: 40%;
+}
+
+.slide_image {
+    width: 200px;
+    height: 250px;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8);
+} 
+
+#right_slide_button, #left_slide_button {
+    position: absolute;
+    width: auto;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    margin-top: -35%;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 25px;
+    user-select: none;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#right_slide_button:active, #left_slide_button:active {
+    opacity: 40%;
+}
+
+#left_slide_button {
+    left: 0;   
+    margin-left: 3%;
+}
+
+#right_slide_button {
+    right: 0;
+    margin-right: 3%;
+}
+  
+#dot_container {
+    padding-top: 3%;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.dot:hover {
+    background-color: #717171;
+}

@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div id="image_slider" style="max-width:500px">
+    <img class="slide_image" src="assets\images\shop.jpg" style="width:100%">
+    <img class="slide_image" src="assets\images\window.jpg" style="width:100%">
+
+    <a id="left_slide_button" (click)='changeSlider("left")'>&#10094;</a>
+    <a id="right_slide_button" (click)='changeSlider("right")'>&#10095;</a>
+
+    <div id="dot_container" style="text-align:center">
+        <span class="dot" (click)='changeSliderToIndex(0)'></span> 
+        <span class="dot" (click)='changeSliderToIndex(1)'></span> 
+    </div>
+
+</div>
