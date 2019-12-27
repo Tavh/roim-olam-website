@@ -6,14 +6,15 @@
 
     <div class="menu">
         <ul>
-            <li><a href="#">בית</a></li>
-
+            <li><a href="#" (click)="closeMenu()">בית</a></li>
+            <li><a href="#" (click)="closeMenu()">צור&nbsp;קשר</a></li>
+            
             <li>
                 <a href="#" (click)='changeSubMenuState("glasses_sub_menu")'>משקפיים</a>
 
                 <ul id="glasses_sub_menu" class="sub_menu">
-                    <li><a href="#" (click)="closeMenu()">משקפי שמש</a></li>
-                    <li><a href="#" (click)="closeMenu()">משקפי ראייה</a></li>
+                    <li><a href="#" (click)="closeMenu()">משקפי&nbsp;שמש</a></li>
+                    <li><a href="#" (click)="closeMenu()">משקפי&nbsp;ראייה</a></li>
                 </ul>
             </li>
             
@@ -21,8 +22,8 @@
                 <a href="#" (click)='changeSubMenuState("lenses_sub_menu")'>עדשות</a>
                 
                 <ul id="lenses_sub_menu" class="sub_menu">
-                    <li><a href="#" (click)="closeMenu()">עדשות מגע</a></li>
-                    <li><a href="#" (click)="closeMenu()">עדשות למשקפיים</a></li>
+                    <li><a href="#" (click)="closeMenu()">עדשות&nbsp;מגע</a></li>
+                    <li><a href="#" (click)="closeMenu()">עדשות&nbsp;למשקפיים</a></li>
                 </ul>
             </li>
         </ul>
