@@ -1,5 +1,7 @@
 <ul class="buttons">
+    <app-logout-desktop *ngIf="this.sessionUserDetails.loginStatus == 'CONNECTED'"></app-logout-desktop>
     <a><button>צור קשר</button></a>
     <a><button>משקפיים</button></a>
     <a><button>עדשות</button></a>
+    <a><button *ngIf="sessionUserDetails.userType == 'ADMIN'" routerLink="/update-catalog">עדכן קטלוג</button></a>
 </ul>

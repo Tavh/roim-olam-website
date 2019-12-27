@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { HeaderDesktopComponent } from './components/desktop/header-desktop/header-desktop.component';
@@ -17,6 +18,9 @@ import { SunGlassesMobileComponent } from './components/mobile/catalogs/sun-glas
 import { ContactUsMobileComponent } from './components/mobile/contact-us-mobile/contact-us-mobile.component';
 import { ContactLensesMobileComponent } from './components/mobile/catalogs/contact-lenses-mobile/contact-lenses-mobile.component';
 import { GlassLensesMobileComponent } from './components/mobile/catalogs/glass-lenses-mobile/glass-lenses-mobile.component';
+import { UpdateCatalogComponent } from './components/desktop/update-catalog/update-catalog.component';
+import { LoginDesktopComponent } from './components/desktop/login-desktop/login-desktop.component';
+import { LogoutDesktopComponent } from './components/desktop/logout-desktop/logout-desktop.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -25,6 +29,8 @@ const appRoutes: Routes = [
     { path: 'sun-glasses-mobile', component: SunGlassesMobileComponent },
     { path: 'contact-lenses-mobile', component: ContactLensesMobileComponent },
     { path: 'glass-lenses-mobile', component: GlassLensesMobileComponent },
+    { path: 'update-catalog', component: UpdateCatalogComponent },
+    { path: 'login', component: LoginDesktopComponent },
     { path: '',
       redirectTo: '/home',
       pathMatch: 'full'
@@ -46,7 +52,10 @@ const appRoutes: Routes = [
     SunGlassesMobileComponent,
     ContactUsMobileComponent,
     ContactLensesMobileComponent,
-    GlassLensesMobileComponent
+    GlassLensesMobileComponent,
+    UpdateCatalogComponent,
+    LoginDesktopComponent,
+    LogoutDesktopComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +63,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ CookieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

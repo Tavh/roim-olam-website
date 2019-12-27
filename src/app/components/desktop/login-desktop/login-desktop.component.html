@@ -1,0 +1,35 @@
+<div id="page">
+
+    <form #formData="ngForm" *ngIf="sessionUserDetails.loginStatus != 'CONNECTED'">
+
+        <label> <h3> : אנא הכנס/י פרטי הזדהות </h3> </label>
+
+        <div>
+
+            <input #usernameData="ngModel" [(ngModel)]="email" name="email" required minlength="4" type="text" placeholder="...אימייל" >
+
+            <br>
+            <br>
+
+            <input #passwordData="ngModel" [(ngModel)]="password" name="password" required minlength="4" required maxlength="12"
+            type="password" placeholder="...סיסמא">
+
+            <br>
+            <br>
+
+        </div>
+
+        <button id="login_button" [disabled]="formData.form.invalid" (click)="login()">התחבר</button>
+
+        <br>
+        <br>
+        
+        <div id="user_not_found_error" *ngIf="this.isDisplayError == true">
+            <span id="user_not_found_error_text">{{errorMessage}}</span>
+        </div>
+    </form>
+
+    <br>
+    
+    <h3 *ngIf="sessionUserDetails.loginStatus == 'CONNECTED'"> {{sessionUserDetails.email}} has logged in successfully!</h3>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionStorageManager } from 'src/app/shared/session-storage-manager';
+import { UserDetails } from 'src/app/shared/data/user.model';
 
 @Component({
   selector: 'app-guest-buttons-desktop',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuestButtonsDesktopComponent implements OnInit {
 
-  constructor() { }
+    private sessionUserDetails: UserDetails
 
-  ngOnInit() {
-  }
+    constructor() {
+      SessionStorageManager.initializeSessionStorageCurrentUserData()
+      this.sessionUserDetails = SessionStorageManager.getSessionStorageUserDetails()
+    }
+  
+    ngOnInit() {
+    }
 
 }

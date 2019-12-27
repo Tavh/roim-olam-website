@@ -1,0 +1,30 @@
+a {
+    float: left;
+    height: 100%;
+}
+
+ a {
+    height: 100%;
+    display: table;
+    float: right;
+}
+
+ a button {
+    cursor: pointer;
+    background-color: rgb(141, 72, 72);
+    border-width: 0px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    color: white;
+    font-size: 16px;
+    padding: 30px;
+}
+
+ a button:hover {
+    background-color: rgb(92, 40, 40);
+}
+
+ a button:active {
+    background-color: rgb(59, 59, 59);
+}

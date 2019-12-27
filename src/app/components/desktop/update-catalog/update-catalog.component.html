@@ -1,0 +1,62 @@
+<br>
+
+<div id="page">
+
+    <form #formData="ngForm" enctype="multipart/form-data">
+
+        <label> <h3> : אנא הכנס/י את פרטי המוצר</h3> </label>
+
+        <div>
+
+            <input #titleData="ngModel" [(ngModel)]="title" name="title" required minlength="1" type="text" placeholder="...שם מוצר" >
+
+            <br>
+            <br>
+
+            <input #priceData="ngModel" [(ngModel)]="price" name="price" type="number" min=0 placeholder="...מחיר">
+
+            <br>
+            <br>
+
+            <input #amountInStockData="ngModel" [(ngModel)]="amountInStock" name="amountInStock" type="number" min=0 placeholder="...מלאי">
+            
+            <br>
+            <br>
+
+            <div id="type_selection">
+                    <select #itemTypeData="ngModel" [(ngModel)]="itemType" name="itemType" required>
+                        <option value="EYE_GLASSES">משקפי ראייה</option>
+                        <option value="SUN_GLASSES">משקפי שמש</option>
+                        <option value="GLASS_LENSES">עדשות למשקפיים</option>
+                        <option value="CONTACT_LENSES">עדשות מגע</option>
+                    </select>
+                    <span id="item_type"> סוג מוצר</span>
+            </div>
+
+            <br>
+
+            <textarea name="description" #descriptionData="ngModel" [(ngModel)]="description" placeholder="...תיאור מוצר" ></textarea>
+
+            <br>
+            <br>
+
+            <input type="file" id="upload_photo" (change)="handlePhotoUpload($event.target.files)" name="photo"/>
+            
+            <br>
+            <br>
+
+        </div>
+
+        <button id="submit_button"  (click)="createCatalogItem()">עדכן</button>
+
+        <br>
+        <br>
+
+        <div id="photo_name_already_exists" *ngIf="this.isDisplayError == true">
+            <span id="photo_name_already_exists_text">{{errorMessage}}</span>
+        </div>
+
+        <h3 *ngIf="this.isDisplayUploadSuccessful == true" >{{title}} has been successfully uploaded</h3 >
+    </form>
+    
+</div>
