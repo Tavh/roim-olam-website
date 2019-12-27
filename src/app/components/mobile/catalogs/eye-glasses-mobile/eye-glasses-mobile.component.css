@@ -1,4 +1,4 @@
-#all_products_container {
+#eye_glasses_catalog_container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -7,14 +7,14 @@
 }
   
 @media only screen and (max-width: 450px) {
-    #all_products_container {
+    #eye_glasses_catalog_container {
       grid-template-columns: 1fr;
       justify-content: center;
     }
 }
   
 @media only screen and (min-width: 451px) and (max-width: 800px) {
-    #all_products_container {
+    #eye_glasses_catalog_container {
       grid-template-columns: 1fr 1fr;
       justify-content: center;
     }

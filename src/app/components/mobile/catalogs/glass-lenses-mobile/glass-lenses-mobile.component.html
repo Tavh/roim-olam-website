@@ -1,1 +1,10 @@
-<p>glass-lenses-mobile works!</p>
+<div id="glass_lenses_catalog_container">
+    <div class="product_card" *ngFor="let c of this.catalogItems">
+      <img src="data:image/jpeg;base64,{{c.photoBase64String}}" width=300 height=200>
+      <h3>{{c.title}}</h3>
+      <p class="price">{{c.price}}₪</p>
+      <p class="amount_in_stock">{{c.amountInStock}}</p>
+      <p class="description">{{c.description}}</p>
+      <!-- <p><button>🛒</button></p> -->
+    </div>
+</div>
