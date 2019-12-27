@@ -97,6 +97,8 @@
     visibility: hidden;
     opacity: 0;
     display: block;
+    transition: 0.2s;
+    transform: scaleY(0.0)
 }
 
 .sub_menu > li > a {

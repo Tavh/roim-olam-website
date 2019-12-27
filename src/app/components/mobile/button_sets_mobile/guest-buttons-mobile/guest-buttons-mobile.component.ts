@@ -29,6 +29,7 @@ export class GuestButtonsMobileComponent implements OnInit {
         subMenu.style.opacity = "100%"
         subMenu.style.visibility = "visible"
         subMenu.style.maxHeight = "200px"
+        subMenu.style.transform = "scaleY(1)"
 
         this.closeSubMenus(subMenu)
     }
@@ -37,6 +38,7 @@ export class GuestButtonsMobileComponent implements OnInit {
         subMenu.style.opacity = "0%"
         subMenu.style.visibility = "hidden"
         subMenu.style.maxHeight = "0px"
+        subMenu.style.transform = "scaleY(0)"
     }
 
     closeSubMenus(excludedElement?) {
