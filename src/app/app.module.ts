@@ -15,7 +15,7 @@ import { ButtonsMobileComponent } from './components/mobile/button_sets_mobile/b
 import { HomeComponent } from './components/home/home.component';
 import { EyeGlassesMobileComponent } from './components/mobile/catalogs/eye-glasses-mobile/eye-glasses-mobile.component';
 import { SunGlassesMobileComponent } from './components/mobile/catalogs/sun-glasses-mobile/sun-glasses-mobile.component';
-import { ContactUsMobileComponent } from './components/mobile/contact-us-mobile/contact-us-mobile.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ContactLensesMobileComponent } from './components/mobile/catalogs/contact-lenses-mobile/contact-lenses-mobile.component';
 import { GlassLensesMobileComponent } from './components/mobile/catalogs/glass-lenses-mobile/glass-lenses-mobile.component';
 import { UpdateCatalogComponent } from './components/desktop/update-catalog/update-catalog.component';
@@ -24,7 +24,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
-    { path: 'contact-us-mobile', component: ContactUsMobileComponent },
+    { path: 'contact-us', component: ContactUsComponent },
     { path: 'eye-glasses-mobile', component: EyeGlassesMobileComponent },
     { path: 'sun-glasses-mobile', component: SunGlassesMobileComponent },
     { path: 'contact-lenses-mobile', component: ContactLensesMobileComponent },
@@ -50,12 +50,12 @@ const appRoutes: Routes = [
     HomeComponent,
     EyeGlassesMobileComponent,
     SunGlassesMobileComponent,
-    ContactUsMobileComponent,
+    ContactUsComponent,
     ContactLensesMobileComponent,
     GlassLensesMobileComponent,
     UpdateCatalogComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
