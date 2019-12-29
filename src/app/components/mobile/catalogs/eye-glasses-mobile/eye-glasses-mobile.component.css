@@ -1,38 +1,32 @@
 #eye_glasses_catalog_container {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-  
-@media only screen and (max-width: 450px) {
-    #eye_glasses_catalog_container {
-      grid-template-columns: 1fr;
-      justify-content: center;
-    }
-}
-  
-@media only screen and (min-width: 451px) and (max-width: 800px) {
-    #eye_glasses_catalog_container {
-      grid-template-columns: 1fr 1fr;
-      justify-content: center;
-    }
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
 }
   
 .product_card {
+    margin-right: auto;
+    margin-left: auto;
+    position: absolute;
     background-color: white;
-    height: 370px;
-    max-width: 300px;
+    max-width: 130px;
+    /* height: 310px; */
+    height: 270px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
     font-family: arial;
     position: relative;
     word-wrap: break-word;
     margin-top: 10%;
-    margin-left: 10%;
 }
   
+.product_card > img {
+    width: 130px;
+    height: 80px;
+}
+
 .Price {
     color: grey;
 }
@@ -42,7 +36,7 @@
     outline: 0;
     padding: 12px;
     color: white;
-    background-color:rgb(112, 89, 61);
+    background-color:rgb(36, 36, 36);
     text-align: center;
     cursor: pointer;
     width: 100%;
@@ -55,7 +49,7 @@
 .product_card button:hover {
     opacity: 0.7;
 }
-  
+
 .description {
     font-size: 20;
 }
