@@ -21,6 +21,10 @@
     word-wrap: break-word;
     margin-top: 10%;
 }
+
+.product_card:last-child {
+    margin-bottom: 10%;
+}
   
 .product_card > img {
     width: 130px;
@@ -66,6 +70,7 @@
     margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
     left: 0;
     right: 0;
+    margin-top: 15%;
     position: fixed;
     z-index: 1;
     height: 400px;
