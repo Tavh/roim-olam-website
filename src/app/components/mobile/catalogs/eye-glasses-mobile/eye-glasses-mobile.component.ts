@@ -12,12 +12,16 @@ export class EyeGlassesMobileComponent implements OnInit {
 
     private photoAsEncodedBase64String: string
     private catalogItems: CatalogItem[]
-  
+    private highlightedCatalogItem: CatalogItem
+
+    private highlightedProductContainer: HTMLElement
+    
     constructor(private catalogService: CatalogService) {
       this.getCatalogItemsByType()
     }
   
     ngOnInit() {
+        this.highlightedProductContainer = document.getElementById("highlighted_product_info_container")
     }
   
     getCatalogItemsByType() {
@@ -33,6 +37,18 @@ export class EyeGlassesMobileComponent implements OnInit {
         err => {
           console.log(err)
         })
+    }
+
+    displayHighlightedProduct(catalogItem: CatalogItem) {
+        if (this.highlightedProductContainer == null) {
+            this.highlightedProductContainer = document.getElementById("highlighted_product_info_container")
+        }
+        this.highlightedCatalogItem = catalogItem
+        this.highlightedProductContainer.style.visibility = "visible"
+    }
+    
+    hideHighlightedProduct() {
+        this.highlightedProductContainer.style.visibility = "hidden"
     }
 
 }
