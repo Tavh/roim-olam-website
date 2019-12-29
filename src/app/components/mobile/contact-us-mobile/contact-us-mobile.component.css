@@ -1,7 +1,12 @@
 .multiline {
     white-space: pre-wrap;
+    font-size: 20px;
 }
 
-#contact_us_text > * {
+div > * {
     text-align: center;
+}
+
+div > h2 {
+    font-size: 35px;
 }
