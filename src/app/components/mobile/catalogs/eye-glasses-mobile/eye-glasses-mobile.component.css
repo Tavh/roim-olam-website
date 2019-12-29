@@ -13,7 +13,7 @@
     background-color: white;
     max-width: 130px;
     /* height: 310px; */
-    height: 270px;
+    height: 240px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
     font-family: arial;
@@ -30,7 +30,7 @@
 .Price {
     color: grey;
 }
-  
+
 .product_card button {
     border: none;
     outline: 0;
@@ -54,3 +54,26 @@
     font-size: 20;
 }
   
+#detailed_item_info_container {
+    position: relative;
+}
+
+#detailed_item_info {
+    margin-left: 8.5%;
+    margin-top: 18%;
+    position: absolute;
+    z-index: 5;
+    height: 400px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: arial;
+    word-wrap: break-word;
+}
+
+#screen_mask {
+    width: 50%;
+    height: 100%;
+    background-color: black;
+}
