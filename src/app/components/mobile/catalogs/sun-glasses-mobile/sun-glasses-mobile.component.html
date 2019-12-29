@@ -1,10 +1,31 @@
+<div id="highlighted_product_info_container">
+    <div id="screen_mask"></div>
+    <div id="highlighted_product_info" *ngIf="this.highlightedCatalogItem != null">
+        <a id="highlighted_product_exit_button" (click)="hideHighlightedProduct()">×</a>
+
+        <img src="data:image/jpeg;base64,{{highlightedCatalogItem.photoBase64String}}">
+        <h3>{{highlightedCatalogItem.title}}</h3>
+        <br>
+        <p class="price">{{highlightedCatalogItem.price}}₪</p>
+        <br>
+        <p class="amount_in_stock">{{highlightedCatalogItem.amountInStock}}</p>
+        <br>
+        <p class="description">{{highlightedCatalogItem.description}}</p>
+        <!-- <p><button>🛒</button></p> -->
+    </div>
+</div>
+
 <div id="sun_glasses_catalog_container">
     <div class="product_card" *ngFor="let c of this.catalogItems">
-      <img src="data:image/jpeg;base64,{{c.photoBase64String}}" width=300 height=200>
+      <img src="data:image/jpeg;base64,{{c.photoBase64String}}">
       <h3>{{c.title}}</h3>
+      <br>
       <p class="price">{{c.price}}₪</p>
+      <br>
       <p class="amount_in_stock">{{c.amountInStock}}</p>
-      <p class="description">{{c.description}}</p>
+      <br>
+      <!-- <p class="description">{{c.description}}</p> -->
       <!-- <p><button>🛒</button></p> -->
+      <p><button (click)="displayHighlightedProduct(c)">...</button></p>
     </div>
 </div>

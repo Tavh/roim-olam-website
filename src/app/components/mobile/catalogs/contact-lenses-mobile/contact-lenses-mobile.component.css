@@ -1,48 +1,46 @@
-#econtact_lensescatalog_container {
+#contact_lenses_catalog_container {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-  
-@media only screen and (max-width: 450px) {
-    #contact_lenses_catalog_container {
-      grid-template-columns: 1fr;
-      justify-content: center;
-    }
-}
-  
-@media only screen and (min-width: 451px) and (max-width: 800px) {
-    #contact_lenses_catalog_container {
-      grid-template-columns: 1fr 1fr;
-      justify-content: center;
-    }
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
 }
   
 .product_card {
+    margin-right: auto;
+    margin-left: auto;
+    position: absolute;
     background-color: white;
-    height: 370px;
-    max-width: 300px;
+    max-width: 130px;
+    /* height: 310px; */
+    height: 250px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
     font-family: arial;
     position: relative;
     word-wrap: break-word;
     margin-top: 10%;
-    margin-left: 10%;
+}
+
+.product_card:last-child {
+    margin-bottom: 10%;
 }
   
+.product_card > img {
+    width: 130px;
+    height: 80px;
+}
+
 .Price {
     color: grey;
 }
-  
+
 .product_card button {
     border: none;
     outline: 0;
     padding: 12px;
     color: white;
-    background-color:rgb(112, 89, 61);
+    background-color:rgb(36, 36, 36);
     text-align: center;
     cursor: pointer;
     width: 100%;
@@ -52,11 +50,64 @@
     left: 0;
 }
   
-.product_card button:hover {
+.product_card button:active {
     opacity: 0.7;
 }
-  
+
 .description {
     font-size: 20;
 }
+
+#highlighted_product_info_container {
+    position: relative;
+    visibility: hidden;
+}
+
+#highlighted_product_info {
+    position: fixed;
+    width: 500px;
+    height: 200px;
+    margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+    left: 0;
+    right: 0;
+    margin-top: 15%;
+    position: fixed;
+    z-index: 1;
+    height: 400px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: arial;
+    word-wrap: break-word;
+}
+
   
+#highlighted_product_info > img {
+    width: 300px;
+    height: 210px;
+}
+
+
+#screen_mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+#highlighted_product_exit_button {
+    right: 0;
+    margin-right: 4%;
+    position: absolute;
+    font-size: 45px;
+}
+
+#highlighted_product_exit_button:active {
+    opacity: 40%;
+}

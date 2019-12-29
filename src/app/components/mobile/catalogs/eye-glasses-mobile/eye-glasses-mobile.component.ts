@@ -17,22 +17,24 @@ export class EyeGlassesMobileComponent implements OnInit {
     private highlightedProductContainer: HTMLElement
     
     constructor(private catalogService: CatalogService) {
-      this.getCatalogItemsByType()
+        this.getCatalogItemsByType()
+        
+        // Makes sure the highlighted product is hidden at page startup
+        if (this.highlightedCatalogItem != null) {
+            this.hideHighlightedProduct()
+        }
     }
-  
+    
     ngOnInit() {
         this.highlightedProductContainer = document.getElementById("highlighted_product_info_container")
     }
-  
+    
     getCatalogItemsByType() {
-      const observable =  this.catalogService.getCatalogItemsByType(ItemType.EYE_GLASSES)
-  
-      observable.subscribe(
-        res => {
-          this.catalogItems = res.body
-          this.catalogItems.forEach(element => {
-              console.log(element)
-          });
+        const observable =  this.catalogService.getCatalogItemsByType(ItemType.EYE_GLASSES)
+        
+        observable.subscribe(
+            res => {
+                this.catalogItems = res.body
         },
         err => {
           console.log(err)
@@ -50,5 +52,4 @@ export class EyeGlassesMobileComponent implements OnInit {
     hideHighlightedProduct() {
         this.highlightedProductContainer.style.visibility = "hidden"
     }
-
 }

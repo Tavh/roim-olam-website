@@ -53,7 +53,9 @@ export class ButtonsMobileComponent implements OnInit {
 
     closeMenu() {
         let menuToggler = document.getElementById("toggler")
+        let transparentScreenMask = document.getElementById("transparent_screen_mask")
 
+        transparentScreenMask.style.visibility = "hidden";
         menuToggler.click()
     }
 

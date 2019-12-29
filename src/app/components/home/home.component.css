@@ -8,7 +8,7 @@
   
 .slide_image {
     width: 100%;
-    height: 250px;
+    height: 220px;
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8);
 } 
 
@@ -76,6 +76,15 @@
     to {opacity: 1}
 }
 
+@media only screen and (min-height: 700px) {
+    .slide_image {
+        margin-top: 10%;
+        width: 100%;
+        height: 300px;
+        box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8);
+    } 
+}
+
 @media only screen and (min-width: 451px) {
     .slide_image  {
         display: block;
@@ -106,6 +115,8 @@
     #right_slide_button:active, #left_slide_button:active {
         background-color: rgb(175, 175, 175);
     }
+}
 
-
+#home_text p {
+    font-size: 20px;
 }

@@ -1,6 +1,6 @@
 <div id="highlighted_product_info_container">
     <div id="screen_mask"></div>
-    <div id="highlighted_product_info">
+    <div id="highlighted_product_info" *ngIf="this.highlightedCatalogItem != null">
         <a id="highlighted_product_exit_button" (click)="hideHighlightedProduct()">×</a>
 
         <img src="data:image/jpeg;base64,{{highlightedCatalogItem.photoBase64String}}">
