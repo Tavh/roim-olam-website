@@ -1,8 +1,21 @@
-<ul class="buttons">
-    <app-logout *ngIf="this.sessionUserDetails.loginStatus == 'CONNECTED'"></app-logout>
-    <button routerLink="/home">בית</button>
-    <button routerLink="/contact-us">צור קשר</button>
-    <button class="subnavbtn">משקפיים</button>
-    <button>עדשות</button>
-    <button *ngIf="sessionUserDetails.userType == 'ADMIN'" routerLink="/update-catalog">עדכן קטלוג</button>
-</ul>
+  
+<app-logout *ngIf="sessionUserDetails.loginStatus == 'CONNECTED'"></app-logout>
+
+<span id="glasses_menu" class="drop_down">
+    <button class="drop_down_button" id="glasses_menu_button">מחלקת משקפיים</button>
+    <div class="drop_down_content">
+        <a href="#" routerLink="/eyeglasses-catalog">משקפי ראייה</a>
+        <a href="#" routerLink="/sunglasses-catalog">משקפי שמש</a>
+    </div>
+</span>
+
+<span id="lenses_menu" class="drop_down">
+    <button class="drop_down_button" id="lenses_menu_button">מחלקת עדשות</button>
+    <div class="drop_down_content">
+        <a href="#"routerLink="/contact-lenses-catalog">עדשות מגע </a>
+        <a href="#" routerLink="/glass-lenses-catalog">עדשות למשקפיים</a>
+    </div>
+</span>
+<button class="menu_button" routerLink="/contact-us">צור קשר</button>
+<button class="menu_button" routerLink="/home">בית</button>
+<button  *ngIf="sessionUserDetails.userType == 'ADMIN'" class="dev_button" routerLink="/update-catalog">עדכן קטלוג</button>
