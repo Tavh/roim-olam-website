@@ -1,8 +1,8 @@
 <ul class="buttons">
     <app-logout *ngIf="this.sessionUserDetails.loginStatus == 'CONNECTED'"></app-logout>
-    <a><button routerLink="/home">בית</button></a>
-    <a><button routerLink="/contact-us">צור קשר</button></a>
-    <a><button>משקפיים</button></a>
-    <a><button>עדשות</button></a>
-    <a><button *ngIf="sessionUserDetails.userType == 'ADMIN'" routerLink="/update-catalog">עדכן קטלוג</button></a>
+    <button routerLink="/home">בית</button>
+    <button routerLink="/contact-us">צור קשר</button>
+    <button class="subnavbtn">משקפיים</button>
+    <button>עדשות</button>
+    <button *ngIf="sessionUserDetails.userType == 'ADMIN'" routerLink="/update-catalog">עדכן קטלוג</button>
 </ul>
