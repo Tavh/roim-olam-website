@@ -3,8 +3,8 @@
 <span id="glasses_menu" class="drop_down">
     <button class="drop_down_button" id="glasses_menu_button">מחלקת משקפיים</button>
     <div class="drop_down_content">
-        <a href="#" routerLink="/eye-glasses-mobile">משקפי ראייה</a>
-        <a href="#" routerLink="/sun-glasses-mobile">משקפי שמש</a>
+        <a routerLink="/eye-glasses-mobile">משקפי ראייה</a>
+        <a routerLink="/sun-glasses-mobile">משקפי שמש</a>
     </div>
 </span>
 
@@ -15,6 +15,7 @@
         <a routerLink="/glass-lenses-mobile">עדשות למשקפיים</a>
     </div>
 </span>
+
 <button class="menu_button" routerLink="/contact-us">צור קשר</button>
 <button class="menu_button" routerLink="/home">בית</button>
 <button  *ngIf="sessionUserDetails.userType == 'ADMIN'" class="menu_button" routerLink="/update-catalog">עדכן קטלוג</button>
