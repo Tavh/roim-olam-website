@@ -31,7 +31,7 @@
     height: 80px;
 }
 
-.Price {
+.price {
     color: grey;
 }
 
@@ -110,4 +110,59 @@
 
 #highlighted_product_exit_button:active {
     opacity: 40%;
+}
+
+@media only screen and (min-width: 700px) {
+    #eye_glasses_catalog_container {
+        margin-left: 10%;
+        margin-right: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-content: center;
+    }
+    
+    #highlighted_product_exit_button:hover {
+        cursor: pointer;
+        opacity: 40%;
+    }
+    
+    #highlighted_product_info {
+        max-height: 500px;
+        height: 500px;
+        max-width: 400px;
+        width: 400px;
+        margin-top: 1%;
+    }
+
+    #highlighted_product_info > img {
+        width: 370px;
+        height: 280px;
+    }
+    .product_card {
+        margin-right: auto;
+        margin-left: auto;
+        position: absolute;
+        background-color: white;
+        max-width: 250px;
+        width: 250px;
+        /* height: 310px; */
+        height: 350px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+        font-family: arial;
+        position: relative;
+        word-wrap: break-word;
+        margin-top: 10%;
+    }
+
+    .product_card > img {
+        width: 250px;
+        height: 180px;
+    }
+
+    .product_card > button:hover {
+        opacity: 80%;
+    }
 }

@@ -1,15 +1,6 @@
-a {
-    float: left;
-    height: 100%;
-}
 
- a {
-    height: 100%;
-    display: table;
-    float: right;
-}
 
- a button {
+button {
     cursor: pointer;
     background-color: rgb(141, 72, 72);
     border-width: 0px;
@@ -19,12 +10,14 @@ a {
     color: white;
     font-size: 16px;
     padding: 30px;
+    display: table;
+    float: left;
 }
 
- a button:hover {
+button:hover {
+    background-color: rgb(92, 59, 59);
+}
+
+button:active {
     background-color: rgb(92, 40, 40);
-}
-
- a button:active {
-    background-color: rgb(59, 59, 59);
 }
