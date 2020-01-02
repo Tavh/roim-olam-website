@@ -15,7 +15,7 @@
     background-color: white;
     max-width: 130px;
     /* height: 310px; */
-    height: 250px;
+    height: 270px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
     font-family: arial;
@@ -150,7 +150,7 @@
         max-width: 250px;
         width: 250px;
         /* height: 310px; */
-        height: 350px;
+        height: 375px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         text-align: center;
         font-family: arial;
@@ -161,7 +161,7 @@
 
     .product_card > img {
         width: 250px;
-        height: 180px;
+        height: 160px;
     }
 
     .product_card > button:hover {

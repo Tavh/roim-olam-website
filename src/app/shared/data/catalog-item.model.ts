@@ -1,6 +1,7 @@
 export class CatalogItem {
     id: number
     title: string
+    brand: string
     price: number
     amountInStock: number
     description: string
@@ -10,6 +11,7 @@ export class CatalogItem {
 
     public constructor (
         title?: string, 
+        brand?: string,
         price?: number,
         amountInStock?: number, 
         description?: string, 
@@ -17,11 +19,11 @@ export class CatalogItem {
         photoFileName?: string
     ) {
         this.title = title
+        this.brand = brand
         this.price = price
         this.amountInStock = amountInStock
         this.description = description
         this.itemType = itemType
         this.photoFileName = photoFileName
     }
-
 }

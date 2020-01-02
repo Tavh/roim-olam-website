@@ -41,6 +41,20 @@ export class EyeGlassesMobileComponent implements OnInit {
         })
     }
 
+    getCatalogItemsByTypeAndBrand(brand: string) {
+        const observable =  this.catalogService.getCatalogItemsByTypeAndBrand(ItemType.EYE_GLASSES,
+                                                                              brand)
+        
+        observable.subscribe(
+            res => {
+                this.catalogItems = res.body
+                console.log(this.catalogItems)
+        },
+        err => {
+          console.log(err)
+        })
+    }
+
     displayHighlightedProduct(catalogItem: CatalogItem) {
         if (this.highlightedProductContainer == null) {
             this.highlightedProductContainer = document.getElementById("highlighted_product_info_container")

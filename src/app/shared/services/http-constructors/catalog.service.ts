@@ -49,4 +49,11 @@ export class CatalogService {
         
 
     }
+
+    public getCatalogItemsByTypeAndBrand(itemType: ItemType, brand: string) {
+        return this.myHttpClient.get<CatalogItem[]>(`${ServerConstants.HOST_AND_PORT}/catalog/get-catalog-items-by-brand-and-type?itemType=${itemType}&brand=${brand}`, 
+                                                    {observe: 'response', withCredentials : true})
+          
+  
+      }
 }

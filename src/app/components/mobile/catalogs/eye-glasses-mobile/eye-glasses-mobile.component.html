@@ -15,10 +15,14 @@
     </div>
 </div>
 
+<button id="rayban_button" (click)="getCatalogItemsByTypeAndBrand('Rayban')">Rayban</button>
+
 <div id="eye_glasses_catalog_container">
     <div class="product_card" *ngFor="let c of this.catalogItems">
       <img src="data:image/jpeg;base64,{{c.photoBase64String}}">
       <h3>{{c.title}}</h3>
+      <br>
+      <p class="brand">{{c.brand}}</p>
       <br>
       <p class="price">{{c.price}}₪</p>
       <br>

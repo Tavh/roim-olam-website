@@ -10,6 +10,7 @@ import { GeneralConstants } from 'src/app/shared/constants/general-constants.mod
 })
 export class UpdateCatalogComponent implements OnInit {
     title: string
+    brand: string
     price: number
     amountInStock: number
     description: string
@@ -30,7 +31,13 @@ export class UpdateCatalogComponent implements OnInit {
     public createCatalogItem() {
       this.isDisplayError = false
   
-      var catalogItem = new CatalogItem(this.title, this.price, this.amountInStock, this.description, this.itemType, this.photo.name)
+      var catalogItem = new CatalogItem(this.title, 
+                                        this.brand,
+                                        this.price, 
+                                        this.amountInStock, 
+                                        this.description, 
+                                        this.itemType, 
+                                        this.photo.name)
       
       let photoName = this.photo.name
 
