@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CatalogItem } from 'src/app/shared/data/catalog-item.model';
 import { CatalogService } from 'src/app/shared/services/http-constructors/catalog.service';
 import { ItemType } from 'src/app/shared/data/enums/item-type';
+import { AuthenticationConstants } from 'src/app/shared/constants/authentication-constants.model';
 
 @Component({
   selector: 'app-eye-glasses-mobile',
@@ -15,7 +16,9 @@ export class EyeGlassesMobileComponent implements OnInit {
     private highlightedCatalogItem: CatalogItem
 
     private highlightedProductContainer: HTMLElement
-    
+
+    private displayNoDataFoundMessage: boolean
+
     constructor(private catalogService: CatalogService) {
         this.getCatalogItemsByType()
         
@@ -33,8 +36,8 @@ export class EyeGlassesMobileComponent implements OnInit {
         const observable =  this.catalogService.getCatalogItemsByType(ItemType.EYE_GLASSES)
         
         observable.subscribe(
-            res => {
-                this.catalogItems = res.body
+            response => {
+                this.catalogItems = response.body
         },
         err => {
           console.log(err)
@@ -42,13 +45,22 @@ export class EyeGlassesMobileComponent implements OnInit {
     }
 
     getCatalogItemsByTypeAndBrand(brand: string) {
+        this.displayNoDataFoundMessage = false
+
         const observable =  this.catalogService.getCatalogItemsByTypeAndBrand(ItemType.EYE_GLASSES,
                                                                               brand)
-        
+    
         observable.subscribe(
+            
             res => {
-                this.catalogItems = res.body
-                console.log(this.catalogItems)
+                if (res.status != 200) {
+                    if (res.status == 209) {
+                        this.displayNoDataFoundMessage = true
+                    }
+                    this.catalogItems = []
+                } else {
+                    this.catalogItems = res.body
+                }
         },
         err => {
           console.log(err)

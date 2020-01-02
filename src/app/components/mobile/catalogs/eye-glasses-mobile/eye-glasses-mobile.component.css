@@ -1,3 +1,42 @@
+#filter_container {
+    display: flex;
+    margin-top: 1%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#no_data_found_message {
+    display: flex;
+    margin-top: 1%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.filter_button {
+    background-color: rgb(104, 104, 104);
+    color: white;
+    font-size: 12px;
+    border-width: 1px;
+    padding: 9px;
+    border-style: solid;
+    border-radius: 6px;
+    border-color: rgb(72, 70, 88);
+    cursor: pointer;
+    box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+    position: relative;
+}
+
+.filter_button:hover {
+    opacity: 65%;
+}
+
+.filter_button:active {
+    background-color: black;
+}
+
 #eye_glasses_catalog_container {
     margin-left: 8%;
     margin-right: 8%;

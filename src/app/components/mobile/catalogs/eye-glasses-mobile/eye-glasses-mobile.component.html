@@ -15,7 +15,14 @@
     </div>
 </div>
 
-<button id="rayban_button" (click)="getCatalogItemsByTypeAndBrand('Rayban')">Rayban</button>
+<div id="filter_container">
+    <br>
+
+    <button class="filter_button" (click)="getCatalogItemsByTypeAndBrand('Rayban')">Rayban</button>
+    <button class="filter_button" (click)="getCatalogItemsByTypeAndBrand('Armani')">Armany</button>
+</div>
+<br>
+<h2 id="no_data_found_message" *ngIf="this.displayNoDataFoundMessage">מצטערים, לא נמצאו מוצרים העונים על הגדרה זו</h2>
 
 <div id="eye_glasses_catalog_container">
     <div class="product_card" *ngFor="let c of this.catalogItems">
