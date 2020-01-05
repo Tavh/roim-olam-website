@@ -160,6 +160,25 @@
     opacity: 40%;
 }
 
+.loader {
+    margin-top: 12%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 20px;
+    height: 20px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 @media only screen and (min-width: 700px) {
     #sun_glasses_catalog_container {
         margin-left: 10%;
