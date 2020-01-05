@@ -47,6 +47,7 @@ export class EyeGlassesMobileComponent implements OnInit {
     getCatalogItemsByTypeAndBrand(brand: string) {
         this.displayNoDataFoundMessage = false
 
+        this.catalogItems = null
         const observable =  this.catalogService.getCatalogItemsByTypeAndBrand(ItemType.EYE_GLASSES,
                                                                               brand)
     

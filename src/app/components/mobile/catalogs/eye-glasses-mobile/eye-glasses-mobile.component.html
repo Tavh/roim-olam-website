@@ -25,7 +25,7 @@
 
 <div class="loader" *ngIf="this.catalogItems == null"></div>
 
-<div id="eye_glasses_catalog_container">
+<div id="eye_glasses_catalog_container" *ngIf="this.catalogItems != null">
     <div class="product_card" *ngFor="let c of this.catalogItems">
       <img src="data:image/jpeg;base64,{{c.photoBase64String}}">
       <h3>{{c.title}}</h3>
