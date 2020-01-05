@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CatalogItem } from 'src/app/shared/data/catalog-item.model';
 import { CatalogService } from 'src/app/shared/services/http-constructors/catalog.service';
 import { ItemType } from 'src/app/shared/data/enums/item-type';
-import { AuthenticationConstants } from 'src/app/shared/constants/authentication-constants.model';
 
 @Component({
   selector: 'app-eye-glasses-mobile',
@@ -13,15 +12,15 @@ export class EyeGlassesMobileComponent implements OnInit {
 
     private photoAsEncodedBase64String: string
     private catalogItems: CatalogItem[]
+    private brands: Set<String>
     private highlightedCatalogItem: CatalogItem
-
+    
     private highlightedProductContainer: HTMLElement
 
     private displayNoDataFoundMessage: boolean
 
     constructor(private catalogService: CatalogService) {
         this.getCatalogItemsByType()
-        
         // Makes sure the highlighted product is hidden at page startup
         if (this.highlightedCatalogItem != null) {
             this.hideHighlightedProduct()
@@ -38,6 +37,7 @@ export class EyeGlassesMobileComponent implements OnInit {
         observable.subscribe(
             response => {
                 this.catalogItems = response.body
+                this.brands = this.findAllBrandsInCurrentCatalog()
         },
         err => {
           console.log(err)
@@ -77,5 +77,16 @@ export class EyeGlassesMobileComponent implements OnInit {
     
     hideHighlightedProduct() {
         this.highlightedProductContainer.style.visibility = "hidden"
+    }
+
+    findAllBrandsInCurrentCatalog() {
+        let brands = new Set<String>();
+
+        this.catalogItems.forEach(c => {
+            brands.add(c.brand);
+        });
+
+        console.log(brands)
+        return brands;
     }
 }
