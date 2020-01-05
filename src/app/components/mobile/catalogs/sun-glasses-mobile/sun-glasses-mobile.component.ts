@@ -10,15 +10,18 @@ import { ItemType } from 'src/app/shared/data/enums/item-type';
 })
 export class SunGlassesMobileComponent implements OnInit {
 
+   
     private photoAsEncodedBase64String: string
     private catalogItems: CatalogItem[]
+    private brands: Set<String>
     private highlightedCatalogItem: CatalogItem
-
-    private highlightedProductContainer: HTMLElement
     
+    private highlightedProductContainer: HTMLElement
+
+    private displayNoDataFoundMessage: boolean
+
     constructor(private catalogService: CatalogService) {
         this.getCatalogItemsByType()
-        
         // Makes sure the highlighted product is hidden at page startup
         if (this.highlightedCatalogItem != null) {
             this.hideHighlightedProduct()
@@ -33,8 +36,32 @@ export class SunGlassesMobileComponent implements OnInit {
         const observable =  this.catalogService.getCatalogItemsByType(ItemType.SUN_GLASSES)
         
         observable.subscribe(
+            response => {
+                this.catalogItems = response.body
+                this.brands = this.findAllBrandsInCurrentCatalog()
+        },
+        err => {
+          console.log(err)
+        })
+    }
+
+    getCatalogItemsByTypeAndBrand(brand: string) {
+        this.displayNoDataFoundMessage = false
+
+        const observable =  this.catalogService.getCatalogItemsByTypeAndBrand(ItemType.SUN_GLASSES,
+                                                                              brand)
+    
+        observable.subscribe(
+            
             res => {
-                this.catalogItems = res.body
+                if (res.status != 200) {
+                    if (res.status == 209) {
+                        this.displayNoDataFoundMessage = true
+                    }
+                    this.catalogItems = []
+                } else {
+                    this.catalogItems = res.body
+                }
         },
         err => {
           console.log(err)
@@ -51,5 +78,15 @@ export class SunGlassesMobileComponent implements OnInit {
     
     hideHighlightedProduct() {
         this.highlightedProductContainer.style.visibility = "hidden"
+    }
+
+    findAllBrandsInCurrentCatalog() {
+        let brands = new Set<String>();
+
+        this.catalogItems.forEach(c => {
+            brands.add(c.brand);
+        });
+
+        return brands;
     }
 }

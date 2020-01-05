@@ -1,4 +1,52 @@
-#contact_lenses_catalog_container {
+#filter_container {
+    display: flex;
+    margin-top: 1%;
+    margin-right: 1px;
+    margin-left: 1px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+}
+
+#no_data_found_message {
+    display: flex;
+    margin-top: 1%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.filter_button {
+    display: inline;
+    background-color: rgb(104, 104, 104);
+    color: white;
+    font-size: 11px;
+    border-width: 1px;
+    padding: 9px;
+    border-style: solid;
+    border-radius: 6px;
+    border-color: rgb(72, 70, 88);
+    cursor: pointer;
+    box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+    position: relative;
+}
+
+.filter_button:hover {
+    opacity: 65%;
+}
+
+.filter_button:active {
+    background-color: black;
+}
+
+#contact-lenses_catalog_container {
+    margin-left: 8%;
+    margin-right: 8%;
     display: flex;
     flex-wrap: wrap;
     display: grid;
@@ -13,17 +61,17 @@
     background-color: white;
     max-width: 130px;
     /* height: 310px; */
-    height: 250px;
+    height: 270px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
     font-family: arial;
     position: relative;
     word-wrap: break-word;
-    margin-top: 10%;
+    margin-top: 15%;
 }
 
 .product_card:last-child {
-    margin-bottom: 10%;
+    margin-bottom: 15%;
 }
   
 .product_card > img {
@@ -31,7 +79,7 @@
     height: 80px;
 }
 
-.Price {
+.price {
     color: grey;
 }
 
@@ -110,4 +158,61 @@
 
 #highlighted_product_exit_button:active {
     opacity: 40%;
+}
+
+@media only screen and (min-width: 700px) {
+    #contact_lenses_catalog_container {
+        margin-left: 10%;
+        margin-right: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-content: center;
+    }
+    
+    #highlighted_product_exit_button:hover {
+        cursor: pointer;
+        opacity: 40%;
+    }
+    
+    #highlighted_product_info {
+        max-height: 500px;
+        height: 500px;
+        max-width: 400px;
+        width: 400px;
+        margin-top: 1%;
+    }
+
+    #highlighted_product_info > img {
+        width: 370px;
+        height: 280px;
+    }
+    .product_card {
+        margin-right: 5%;
+        margin-left: 5%;
+        position: absolute;
+        background-color: white;
+        max-width: 250px;
+        width: 250px;
+        /* height: 310px; */
+        height: 375px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+        font-family: arial;
+        position: relative;
+        word-wrap: break-word;
+        margin-top: 10%;
+    }
+
+    .product_card > img {
+        width: 250px;
+        height: 160px;
+    }
+
+    .product_card > button:hover {
+        opacity: 80%;
+    }
+
+
 }

@@ -86,7 +86,6 @@ export class EyeGlassesMobileComponent implements OnInit {
             brands.add(c.brand);
         });
 
-        console.log(brands)
         return brands;
     }
 }

@@ -15,10 +15,20 @@
     </div>
 </div>
 
+<div class="row">
+    <div id="filter_container" *ngFor="let b of this.brands">
+        <button class="filter_button" (click)="getCatalogItemsByTypeAndBrand(b)">{{b}}</button>
+    </div>
+    <br>
+</div>
+<h2 id="no_data_found_message" *ngIf="this.displayNoDataFoundMessage">מצטערים, לא נמצאו מוצרים העונים על הגדרה זו</h2>
+
 <div id="sun_glasses_catalog_container">
     <div class="product_card" *ngFor="let c of this.catalogItems">
       <img src="data:image/jpeg;base64,{{c.photoBase64String}}">
       <h3>{{c.title}}</h3>
+      <br>
+      <p class="brand">{{c.brand}}</p>
       <br>
       <p class="price">{{c.price}}₪</p>
       <br>
@@ -26,6 +36,6 @@
       <br>
       <!-- <p class="description">{{c.description}}</p> -->
       <!-- <p><button>🛒</button></p> -->
-      <p><button (click)="displayHighlightedProduct(c)">...</button></p>
+      <button (click)="displayHighlightedProduct(c)">...</button>
     </div>
 </div>
