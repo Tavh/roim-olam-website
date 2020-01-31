@@ -14,13 +14,14 @@ export class EyeGlassesMobileComponent implements OnInit {
     private catalogItems: CatalogItem[]
     private brands: Set<String>
     private highlightedCatalogItem: CatalogItem
-    
+    private maxPages: number
+    private currentPage: number
     private highlightedProductContainer: HTMLElement
-
     private displayNoDataFoundMessage: boolean
 
     constructor(private catalogService: CatalogService) {
-        this.getCatalogItemsByType()
+        this.currentPage = 0
+        this.getCatalogItemsByType(++this.currentPage)
         // Makes sure the highlighted product is hidden at page startup
         if (this.highlightedCatalogItem != null) {
             this.hideHighlightedProduct()
@@ -31,19 +32,22 @@ export class EyeGlassesMobileComponent implements OnInit {
         this.highlightedProductContainer = document.getElementById("highlighted_product_info_container")
     }
     
-    getCatalogItemsByType() {
-        const observable =  this.catalogService.getCatalogItemsByType(ItemType.EYE_GLASSES)
-        
+    getCatalogItemsByType(page) {
+        this.currentPage = page
+        const observable =  this.catalogService.getCatalogItemsByType(ItemType.EYE_GLASSES, page)
+        this.catalogItems = null
         observable.subscribe(
             response => {
-                this.catalogItems = response.body
-                this.brands = this.findAllBrandsInCurrentCatalog()
+                this.maxPages = response.body.pages
+                this.catalogItems = response.body.catalogItems
+                // this.brands = this.findAllBrandsInCurrentCatalog()
         },
         err => {
           console.log(err)
         })
     }
 
+    /* currently unused
     getCatalogItemsByTypeAndBrand(brand: string) {
         this.displayNoDataFoundMessage = false
 
@@ -66,7 +70,7 @@ export class EyeGlassesMobileComponent implements OnInit {
         err => {
           console.log(err)
         })
-    }
+    } */
 
     displayHighlightedProduct(catalogItem: CatalogItem) {
         if (this.highlightedProductContainer == null) {
@@ -80,6 +84,7 @@ export class EyeGlassesMobileComponent implements OnInit {
         this.highlightedProductContainer.style.visibility = "hidden"
     }
 
+    /* currently unused
     findAllBrandsInCurrentCatalog() {
         let brands = new Set<String>();
 
@@ -88,5 +93,5 @@ export class EyeGlassesMobileComponent implements OnInit {
         });
 
         return brands;
-    }
+    } */
 }

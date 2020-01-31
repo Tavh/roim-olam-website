@@ -233,3 +233,37 @@
         opacity: 80%;
     }
 }
+
+#paging_buttons_container {
+    display: flex;
+    margin-top: 1%;
+    margin-right: 1px;
+    margin-left: 1px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#next_button, #previous_button {
+    display: inline;
+    background-color: rgb(104, 104, 104);
+    color: white;
+    font-size: 11px;
+    border-width: 1px;
+    padding: 9px;
+    border-style: solid;
+    border-radius: 6px;
+    border-color: rgb(72, 70, 88);
+    cursor: pointer;
+    box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+    position: relative;
+    margin-left: 10px;
+}
+
+#next_button:hover, #previous_button:hover {
+    opacity: 65%;
+}
+
+#next_button:active, #previous_button:active {
+    background-color: black;
+}
+

@@ -44,7 +44,16 @@ export class UpdateCatalogComponent implements OnInit {
       if (!photoName.includes(GeneralConstants.JPG_POSTFIX) && !photoName.includes(GeneralConstants.JPEG_POSTFIX)) {
           this.errorMessage = "Please use only JPG photos"
           this.isDisplayError = true
+          return
       }
+
+      let photoSize = this.photo.size
+
+      if (photoSize > GeneralConstants.MAX_PHOTO_SIZE) {
+        this.errorMessage = "File has exceeded max size of: " + GeneralConstants.MAX_PHOTO_SIZE
+        this.isDisplayError = true
+        return
+      } 
 
       const uploadPhotoObservable =  this.catalogService.uploadCatalogItemPhoto(this.photo);
       uploadPhotoObservable.subscribe(

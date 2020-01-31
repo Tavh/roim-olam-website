@@ -37,7 +37,7 @@ export class ContactLensesMobileComponent implements OnInit {
         
         observable.subscribe(
             response => {
-                this.catalogItems = response.body
+                this.catalogItems = response.body.catalogItems
                 this.brands = this.findAllBrandsInCurrentCatalog()
         },
         err => {

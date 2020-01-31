@@ -7,6 +7,7 @@ import { AuthenticationService } from './authentication.service';
 import { UserDetails } from '../../data/user.model';
 import { ItemType } from '../../data/enums/item-type';
 import { SessionStorageManager } from '../../session-storage-manager';
+import { CatalogItemsWrapper } from '../../data/catalog-items-wrapper';
 
 @Injectable({
   providedIn: 'root'
@@ -43,8 +44,8 @@ export class CatalogService {
                                                               { headers: headers, observe: 'response', withCredentials : true})
     }
     
-    public getCatalogItemsByType(itemType: ItemType) {
-      return this.myHttpClient.get<CatalogItem[]>(`${ServerConstants.HOST_AND_PORT}/catalog/get-catalog-items-by-type?itemType=${itemType}`, 
+    public getCatalogItemsByType(itemType: ItemType, page?: number) {
+      return this.myHttpClient.get<CatalogItemsWrapper>(`${ServerConstants.HOST_AND_PORT}/catalog/get-catalog-items-by-type?itemType=${itemType}&page=${page}`, 
                                                   {observe: 'response', withCredentials : true})
         
 
