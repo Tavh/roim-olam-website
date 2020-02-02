@@ -2,7 +2,7 @@
     <div id="screen_mask"></div>
     <div id="highlighted_product_info" *ngIf="this.highlightedCatalogItem != null">
         <a id="highlighted_product_exit_button" (click)="hideHighlightedProduct()">×</a>
-
+        
         <img src="data:image/jpeg;base64,{{highlightedCatalogItem.photoBase64String}}">
         <h3>{{highlightedCatalogItem.title}}</h3>
         <br>
@@ -15,17 +15,25 @@
     </div>
 </div>
 
-<div class="row">
-    <div id="filter_container" *ngFor="let b of this.brands">
-        <button class="filter_button" (click)="getCatalogItemsByTypeAndBrand(b)">{{b}}</button>
+<!-- 
+    <div class="row">
+        <div id="filter_container" *ngFor="let b of this.brands">
+            <button class="filter_button" (click)="getCatalogItemsByTypeAndBrand(b)">{{b}}</button>
+        </div>
+        <br>
     </div>
-    <br>
+    <h2 id="no_data_found_message" *ngIf="this.displayNoDataFoundMessage">מצטערים, לא נמצאו מוצרים העונים על הגדרה זו</h2> -->
+    
+<br>
+    
+<div id="paging_buttons_container">
+    <button id="previous_button" (click)="getCatalogItemsByType(this.currentPage - 1)" *ngIf="this.currentPage > 1">← הקודם</button>
+    <button id="next_button" (click)="getCatalogItemsByType(this.currentPage + 1)" *ngIf="this.currentPage <= this.maxPages">הבא →</button>
 </div>
-<h2 id="no_data_found_message" *ngIf="this.displayNoDataFoundMessage">מצטערים, לא נמצאו מוצרים העונים על הגדרה זו</h2>
 
 <div class="loader" *ngIf="this.catalogItems == null"></div>
 
-<div id="glass_lenses_catalog_container">
+<div id="glass_lesnes_catalog_container" *ngIf="this.catalogItems != null">
     <div class="product_card" *ngFor="let c of this.catalogItems">
       <img src="data:image/jpeg;base64,{{c.photoBase64String}}">
       <h3>{{c.title}}</h3>
@@ -41,3 +49,6 @@
       <button (click)="displayHighlightedProduct(c)">...</button>
     </div>
 </div>
+
+
+
