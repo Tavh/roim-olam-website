@@ -21,7 +21,7 @@ export class ContactUsComponent implements OnInit {
   
     isEditEnabled: boolean
   
-    private sessionUserDetails: UserDetails
+    public sessionUserDetails: UserDetails
   
     constructor(private websiteStaticContentService: WebsiteStaticContentService) {
       SessionStorageManager.initializeSessionStorageCurrentUserData()

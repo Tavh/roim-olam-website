@@ -11,12 +11,12 @@ import { CatalogItem } from 'src/app/shared/data/catalog-item.model';
 export class GlassLensesMobileComponent implements OnInit {
   
     private photoAsEncodedBase64String: string
-    private catalogItems: CatalogItem[]
+    public catalogItems: CatalogItem[]
     private brands: Set<String>
-    private highlightedCatalogItem: CatalogItem
-    private maxPages: number
-    private currentPage: number
-    private highlightedProductContainer: HTMLElement
+    public highlightedCatalogItem: CatalogItem
+    public maxPages: number
+    public currentPage: number
+    public highlightedProductContainer: HTMLElement
     private displayNoDataFoundMessage: boolean
 
     constructor(private catalogService: CatalogService) {

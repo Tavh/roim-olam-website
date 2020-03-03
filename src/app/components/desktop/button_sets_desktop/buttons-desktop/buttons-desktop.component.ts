@@ -9,7 +9,7 @@ import { UserDetails } from 'src/app/shared/data/user.model';
 })
 export class ButtonsDesktopComponent implements OnInit {
 
-    private sessionUserDetails: UserDetails
+    public sessionUserDetails: UserDetails
 
     constructor() {
       SessionStorageManager.initializeSessionStorageCurrentUserData()

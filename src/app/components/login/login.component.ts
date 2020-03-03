@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     email: string
     password: string
   
-    private sessionUserDetails: UserDetails
+    public sessionUserDetails: UserDetails
   
     constructor(private myAuthenticationService: AuthenticationService, private router: Router) {
       this.sessionUserDetails = SessionStorageManager.getSessionStorageUserDetails()
