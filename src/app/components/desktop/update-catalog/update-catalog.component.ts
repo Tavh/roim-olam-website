@@ -36,8 +36,7 @@ export class UpdateCatalogComponent implements OnInit {
                                         this.price, 
                                         this.amountInStock, 
                                         this.description, 
-                                        this.itemType, 
-                                        this.photo.name)
+                                        this.itemType)
       
       let photoName = this.photo.name
 
@@ -58,7 +57,8 @@ export class UpdateCatalogComponent implements OnInit {
       const uploadPhotoObservable =  this.catalogService.uploadCatalogItemPhoto(this.photo);
       uploadPhotoObservable.subscribe(
         res => {
-          if (res.body.status != "OK" && res.status != 201) {
+          if (res.status != 201) {
+            catalogItem.photoId = res.body.id
             this.errorMessage = res.headers.get("errorMessage")
             this.isDisplayError = true
           }

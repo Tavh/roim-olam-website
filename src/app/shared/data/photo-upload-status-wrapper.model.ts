@@ -1,7 +1,7 @@
-export class PhotoUploadStatusWrapper {
-    status: string
+export class PhotoUploadIdWrapper {
+    id: number
 
-    constructor (status: string) {
-        this.status = status
+    constructor (id: number) {
+        this.id = id
     }
 }

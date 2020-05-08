@@ -2,12 +2,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServerConstants } from '../../constants/server-constants.model';
 import { CatalogItem } from '../../data/catalog-item.model';
-import { PhotoUploadStatusWrapper } from '../../data/photo-upload-status-wrapper.model';
-import { AuthenticationService } from './authentication.service';
 import { UserDetails } from '../../data/user.model';
 import { ItemType } from '../../data/enums/item-type';
 import { SessionStorageManager } from '../../session-storage-manager';
 import { CatalogItemsWrapper } from '../../data/catalog-items-wrapper';
+import { PhotoUploadIdWrapper } from '../../data/photo-upload-status-wrapper.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +38,7 @@ export class CatalogService {
       let headers = new HttpHeaders({ "Accept": "*/*" ,
                                       "user-email": `${this.sessionStorageUserDetails.email}`})
       
-      return this.myHttpClient.post<PhotoUploadStatusWrapper>(`${ServerConstants.HOST_AND_PORT}/catalog/save-catalog-item-photo`, 
+      return this.myHttpClient.post<PhotoUploadIdWrapper>(`${ServerConstants.HOST_AND_PORT}/catalog/save-catalog-item-photo`, 
                                                               formData, 
                                                               { headers: headers, observe: 'response', withCredentials : true})
     }
