@@ -4,6 +4,7 @@ import { AuthenticationConstants } from 'src/app/shared/constants/authentication
 import { UserDetails } from 'src/app/shared/data/user.model';
 import { AuthenticationService } from 'src/app/shared/services/http-constructors/authentication.service';
 import { Router } from '@angular/router';
+import { ServerConstants } from 'src/app/shared/constants/server-constants.model';
 
 @Component({
   selector: 'app-login',
@@ -41,11 +42,11 @@ export class LoginComponent implements OnInit {
           }
   
           this.isDisplayError = true
-          this.errorMessage = response.headers.get("errorMessage")
+          this.errorMessage = response.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
         },
         err => {
           this.isDisplayError = true
-          this.errorMessage = err.headers.get("errorMessage")
+          this.errorMessage = err.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
           console.log(err)
         }
       )

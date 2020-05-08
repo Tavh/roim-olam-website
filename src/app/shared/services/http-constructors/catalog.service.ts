@@ -6,7 +6,7 @@ import { UserDetails } from '../../data/user.model';
 import { ItemType } from '../../data/enums/item-type';
 import { SessionStorageManager } from '../../session-storage-manager';
 import { CatalogItemsWrapper } from '../../data/catalog-items-wrapper';
-import { PhotoUploadIdWrapper } from '../../data/photo-upload-status-wrapper.model';
+import { PhotoUploadIdWrapper } from '../../data/photo-upload-id-wrapper';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,7 @@ export class CatalogService {
     public createCatalogItem(catalogItem: CatalogItem) {
       let headers = new HttpHeaders({ "user-email": `${this.sessionStorageUserDetails.email}` })
 
+      console.log(catalogItem.photoId)
       return this.myHttpClient.post<number>(`${ServerConstants.HOST_AND_PORT}/catalog/create-catalog-item`, 
                                             catalogItem, 
                                             {headers: headers, observe: 'response', withCredentials : true})

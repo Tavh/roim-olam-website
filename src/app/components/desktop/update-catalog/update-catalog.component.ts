@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CatalogService } from 'src/app/shared/services/http-constructors/catalog.service';
 import { CatalogItem } from 'src/app/shared/data/catalog-item.model';
 import { GeneralConstants } from 'src/app/shared/constants/general-constants.model';
+import { ServerConstants } from 'src/app/shared/constants/server-constants.model';
 
 @Component({
   selector: 'app-update-catalog',
@@ -54,27 +55,26 @@ export class UpdateCatalogComponent implements OnInit {
         return
       } 
 
-      const uploadPhotoObservable =  this.catalogService.uploadCatalogItemPhoto(this.photo);
+      const uploadPhotoObservable = this.catalogService.uploadCatalogItemPhoto(this.photo);
       uploadPhotoObservable.subscribe(
         res => {
           if (res.status != 201) {
-            catalogItem.photoId = res.body.id
-            this.errorMessage = res.headers.get("errorMessage")
+            this.errorMessage = res.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
             this.isDisplayError = true
           }
       },
       err=> {
           console.log(err)
-          this.errorMessage = err.headers.get("errorMessage")
+          this.errorMessage = err.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
           this.isDisplayError = true
         }
       )
-  
+
       const createItemObservable =  this.catalogService.createCatalogItem(catalogItem);
       createItemObservable.subscribe(
         res => {
           if (res.status != 201) {
-            this.errorMessage = res.headers.get("errorMessage")
+            this.errorMessage = res.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
             this.isDisplayError = true
             return
           } else if (this.isDisplayError != true) {
@@ -83,7 +83,7 @@ export class UpdateCatalogComponent implements OnInit {
       },
       err=> {
           console.log(err)
-          this.errorMessage = err.headers.get("errorMessage")
+          this.errorMessage = err.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
           this.isDisplayError = true
         }
       )
