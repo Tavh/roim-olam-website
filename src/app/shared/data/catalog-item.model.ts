@@ -6,7 +6,7 @@ export class CatalogItem {
     amountInStock: number
     description: string
     itemType: string
-    photoId: number
+    photoId: string
     photoBase64String: string
 
     public constructor (
@@ -16,7 +16,7 @@ export class CatalogItem {
         amountInStock?: number, 
         description?: string, 
         itemType?: string,
-        photoId?: number
+        photoId?: string
     ) {
         this.title = title
         this.brand = brand

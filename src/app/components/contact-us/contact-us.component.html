@@ -1,31 +1,11 @@
 <div>
-    <br>
-    
-    <button id="main_edit_button" class="admin_button" (click)="setIsEditEnabled(true)"
-    *ngIf="sessionUserDetails.userType == 'ADMIN' && isEditEnabled == false">ערוך</button>
 
-    <button class="admin_button" (click)="setIsEditEnabled(false)"
-    *ngIf="sessionUserDetails.userType == 'ADMIN' && isEditEnabled == true">צא מעריכה</button>
-
-    <h2>{{currentHeader}}</h2>
-
-    <div *ngIf="sessionUserDetails.userType == 'ADMIN' && isEditEnabled == true">
-        <input #newHeaderData="ngModel" [(ngModel)]="newHeader" name="newHeader" type="text" placeholder="...כותרת">
-        <button class="submit_button" (click)="writePageText('HEADER', this.newHeader)">עדכן</button>
-    </div>
+    <h2>currentHeader</h2>
 
     <br>
     <br>
 
-    <p class="multiline">{{currentContent}}</p>
-
-    <div *ngIf="sessionUserDetails.userType == 'ADMIN' && isEditEnabled == true">
-        <textarea #newHeaderData="ngModel" [(ngModel)]="newContent" name="newContent" type="text" placeholder="...תוכן"></textarea>
-        
-        <br>
-
-        <button class="submit_button" (click)="writePageText('CONTENT', this.newContent)">עדכן</button>
-    </div>
+    <p class="multiline">currentContent</p>
   
 </div>
 

@@ -31,14 +31,7 @@ export class UpdateCatalogComponent implements OnInit {
   
     public createCatalogItem() {
       this.isDisplayError = false
-  
-      var catalogItem = new CatalogItem(this.title, 
-                                        this.brand,
-                                        this.price, 
-                                        this.amountInStock, 
-                                        this.description, 
-                                        this.itemType)
-      
+
       let photoName = this.photo.name
 
       if (!photoName.includes(GeneralConstants.JPG_POSTFIX) && !photoName.includes(GeneralConstants.JPEG_POSTFIX)) {
@@ -55,7 +48,17 @@ export class UpdateCatalogComponent implements OnInit {
         return
       } 
 
-      const uploadPhotoObservable = this.catalogService.uploadCatalogItemPhoto(this.photo);
+        
+      let photoId = this.generatePhotoId()
+      var catalogItem = new CatalogItem(this.title, 
+                                        this.brand,
+                                        this.price, 
+                                        this.amountInStock, 
+                                        this.description, 
+                                        this.itemType,
+                                        photoId)
+
+      const uploadPhotoObservable = this.catalogService.uploadCatalogItemPhoto(this.photo, photoId);
       uploadPhotoObservable.subscribe(
         res => {
           if (res.status != 201) {
@@ -90,6 +93,10 @@ export class UpdateCatalogComponent implements OnInit {
   
     }
     
+    private generatePhotoId() {
+      return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    }
+
     ngOnInit() {
     }
 

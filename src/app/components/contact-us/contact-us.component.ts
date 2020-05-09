@@ -12,69 +12,10 @@ import { TextWrapper } from 'src/app/shared/data/text-wrapper';
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
-
-    currentHeader: string
-    currentContent: string
   
-    newHeader: string
-    newContent: string
-  
-    isEditEnabled: boolean
-  
-    public sessionUserDetails: UserDetails
-  
-    constructor(private websiteStaticContentService: WebsiteStaticContentService) {
-      SessionStorageManager.initializeSessionStorageCurrentUserData()
-      this.sessionUserDetails = SessionStorageManager.getSessionStorageUserDetails()
-  
-      this.readPageText(WebsitePagePart.HEADER.toString())
-      this.readPageText(WebsitePagePart.CONTENT.toString())
-  
-      this.setIsEditEnabled(false)
-    }
+    constructor() {}
   
     ngOnInit() {
     }
-  
-    writePageText(websitePagePart: string, newText: string) {
-      const observable =  this.websiteStaticContentService.writeStaticContent(WebsitePage.CONTACT_US,
-                                                                              websitePagePart,
-                                                                              new TextWrapper(newText))
-  
-      observable.subscribe(
-        res => {
-          if (res.status == 200) {
-            if (websitePagePart == 'HEADER') {
-              this.currentHeader = res.body.text
-            } else if (websitePagePart == 'CONTENT') {
-              this.currentContent = res.body.text
-            }
-          }
-        },
-        err => {
-          console.log(err)
-        })
-    }
-  
-    readPageText(websitePagePart) {
-      const observable =  this.websiteStaticContentService.readStaticContent(WebsitePage.CONTACT_US, websitePagePart)
-  
-      observable.subscribe(
-        res => {
-          if (res.status == 200) {
-            if (websitePagePart == WebsitePagePart.HEADER.toString()) {
-              this.currentHeader = res.body.text
-            } else if (websitePagePart == WebsitePagePart.CONTENT.toString()) {
-              this.currentContent = res.body.text
-            }
-          }
-        },
-        err => {
-          console.log(err)
-        })
-    }
-  
-    setIsEditEnabled(isEditEnabled: boolean) {
-      this.isEditEnabled = isEditEnabled
-    }
+ 
 }
