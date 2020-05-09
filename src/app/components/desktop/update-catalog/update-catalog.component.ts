@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CatalogService } from 'src/app/shared/services/http-constructors/catalog.service';
 import { CatalogItem } from 'src/app/shared/data/catalog-item.model';
 import { GeneralConstants } from 'src/app/shared/constants/general-constants.model';
+import { ServerConstants } from 'src/app/shared/constants/server-constants.model';
 
 @Component({
   selector: 'app-update-catalog',
@@ -30,15 +31,7 @@ export class UpdateCatalogComponent implements OnInit {
   
     public createCatalogItem() {
       this.isDisplayError = false
-  
-      var catalogItem = new CatalogItem(this.title, 
-                                        this.brand,
-                                        this.price, 
-                                        this.amountInStock, 
-                                        this.description, 
-                                        this.itemType, 
-                                        this.photo.name)
-      
+
       let photoName = this.photo.name
 
       if (!photoName.includes(GeneralConstants.JPG_POSTFIX) && !photoName.includes(GeneralConstants.JPEG_POSTFIX)) {
@@ -55,26 +48,36 @@ export class UpdateCatalogComponent implements OnInit {
         return
       } 
 
-      const uploadPhotoObservable =  this.catalogService.uploadCatalogItemPhoto(this.photo);
+        
+      let photoId = this.generatePhotoId()
+      var catalogItem = new CatalogItem(this.title, 
+                                        this.brand,
+                                        this.price, 
+                                        this.amountInStock, 
+                                        this.description, 
+                                        this.itemType,
+                                        photoId)
+
+      const uploadPhotoObservable = this.catalogService.uploadCatalogItemPhoto(this.photo, photoId);
       uploadPhotoObservable.subscribe(
         res => {
-          if (res.body.status != "OK" && res.status != 201) {
-            this.errorMessage = res.headers.get("errorMessage")
+          if (res.status != 201) {
+            this.errorMessage = res.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
             this.isDisplayError = true
           }
       },
       err=> {
           console.log(err)
-          this.errorMessage = err.headers.get("errorMessage")
+          this.errorMessage = err.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
           this.isDisplayError = true
         }
       )
-  
+
       const createItemObservable =  this.catalogService.createCatalogItem(catalogItem);
       createItemObservable.subscribe(
         res => {
           if (res.status != 201) {
-            this.errorMessage = res.headers.get("errorMessage")
+            this.errorMessage = res.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
             this.isDisplayError = true
             return
           } else if (this.isDisplayError != true) {
@@ -83,13 +86,17 @@ export class UpdateCatalogComponent implements OnInit {
       },
       err=> {
           console.log(err)
-          this.errorMessage = err.headers.get("errorMessage")
+          this.errorMessage = err.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
           this.isDisplayError = true
         }
       )
   
     }
     
+    private generatePhotoId() {
+      return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    }
+
     ngOnInit() {
     }
 

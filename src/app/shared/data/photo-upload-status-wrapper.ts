@@ -1,4 +1,4 @@
-export class PhotoUploadStatusWrapper {
+export class PhotoUploadIdWrapper {
     status: string
 
     constructor (status: string) {
