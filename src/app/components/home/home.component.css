@@ -117,10 +117,25 @@
     }
 }
 
-#home_text h2 {
-    font-size: 35px;
+@media only screen and (max-width: 700px) {
+    #home_text #header {
+        font-weight: bold;
+        font-size: 32px;
+    }
+    
+    #home_text p {
+        font-size: 24px;
+    }
 }
 
-#home_text p {
-    font-size: 20px;
+
+@media only screen and (min-width: 700px) {
+    #home_text #header {
+        font-weight: bold;
+        font-size: 50px;
+    }
+    
+    #home_text p {
+        font-size: 30px;
+    }
 }
