@@ -3,7 +3,7 @@
     <div id="highlighted_product_info" *ngIf="this.highlightedCatalogItem != null">
         <a id="highlighted_product_exit_button" (click)="hideHighlightedProduct()">×</a>
         
-        <img src="data:image/jpeg;base64,{{highlightedCatalogItem.photoBase64String}}">
+        <img src="data:image/jpeg;base64,{{highlightedCatalogItem.photo.photoBase64}}">
         <h3>{{highlightedCatalogItem.title}}</h3>
         <br>
         <p class="price">{{highlightedCatalogItem.price}}₪</p>
@@ -33,7 +33,7 @@
 
 <div id="contact_lenses_catalog_container" *ngIf="this.catalogItems != null">
     <div class="product_card" *ngFor="let c of this.catalogItems">
-      <img src="data:image/jpeg;base64,{{c.photoBase64String}}">
+      <img src="data:image/jpeg;base64,{{c.photo.photoBase64}}">
       <br>
       <h3>{{c.title}}</h3>
       <br>
