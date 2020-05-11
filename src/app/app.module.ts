@@ -13,14 +13,14 @@ import { ViewMobileComponent } from './components/views/view-mobile/view-mobile.
 import { HeaderMobileComponent } from './components/mobile/header-mobile/header-mobile.component';
 import { ButtonsMobileComponent } from './components/mobile/button_sets_mobile/buttons-mobile/buttons-mobile.component';
 import { HomeComponent } from './components/home/home.component';
-import { EyeGlassesMobileComponent } from './components/mobile/catalogs/eye-glasses-mobile/eye-glasses-mobile.component';
-import { SunGlassesMobileComponent } from './components/mobile/catalogs/sun-glasses-mobile/sun-glasses-mobile.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-import { ContactLensesMobileComponent } from './components/mobile/catalogs/contact-lenses-mobile/contact-lenses-mobile.component';
-import { GlassLensesMobileComponent } from './components/mobile/catalogs/glass-lenses-mobile/glass-lenses-mobile.component';
 import { UpdateCatalogComponent } from './components/desktop/update-catalog/update-catalog.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { SunGlassesMobileComponent } from './components/catalogs/sun-glasses-mobile/sun-glasses-mobile.component';
+import { ContactLensesMobileComponent } from './components/catalogs/contact-lenses-mobile/contact-lenses-mobile.component';
+import { GlassLensesMobileComponent } from './components/catalogs/glass-lenses-mobile/glass-lenses-mobile.component';
+import { EyeGlassesMobileComponent } from './components/catalogs/eye-glasses-mobile/eye-glasses-mobile.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
