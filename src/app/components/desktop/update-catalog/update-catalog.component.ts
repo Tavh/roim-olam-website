@@ -13,7 +13,6 @@ export class UpdateCatalogComponent implements OnInit {
     title: string
     brand: string
     price: number
-    amountInStock: number
     description: string
     itemType: string
     photo: File
@@ -53,7 +52,6 @@ export class UpdateCatalogComponent implements OnInit {
       var catalogItem = new CatalogItem(this.title, 
                                         this.brand,
                                         this.price, 
-                                        this.amountInStock, 
                                         this.description, 
                                         this.itemType,
                                         photoId)

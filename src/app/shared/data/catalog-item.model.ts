@@ -3,7 +3,6 @@ export class CatalogItem {
     title: string
     brand: string
     price: number
-    amountInStock: number
     description: string
     itemType: string
     photoId: string
@@ -13,7 +12,6 @@ export class CatalogItem {
         title?: string, 
         brand?: string,
         price?: number,
-        amountInStock?: number, 
         description?: string, 
         itemType?: string,
         photoId?: string
@@ -21,7 +19,6 @@ export class CatalogItem {
         this.title = title
         this.brand = brand
         this.price = price
-        this.amountInStock = amountInStock
         this.description = description
         this.itemType = itemType
         this.photoId = photoId

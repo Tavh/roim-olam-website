@@ -28,12 +28,11 @@
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2",
     "typescript": "~3.8.3",
-    "@angular/cli": "^9.1.4",
     "@angular/compiler-cli": "^9.1.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.4",
-    "@angular/cli": "^9.1.4",
+    "@angular/cli": "^9.1.5",
     "@angular/compiler-cli": "^9.1.4",
     "@angular/language-service": "~9.1.4",
     "@types/jasmine": "~3.3.8",
