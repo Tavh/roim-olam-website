@@ -3,6 +3,7 @@ import { CatalogService } from 'src/app/shared/services/http-constructors/catalo
 import { CatalogItem } from 'src/app/shared/data/catalog-item.model';
 import { GeneralConstants } from 'src/app/shared/constants/general-constants.model';
 import { ServerConstants } from 'src/app/shared/constants/server-constants.model';
+import { CatalogItemPhoto } from 'src/app/shared/data/catalog-item-photo';
 
 @Component({
   selector: 'app-update-catalog',
@@ -16,7 +17,7 @@ export class UpdateCatalogComponent implements OnInit {
     description: string
     itemType: string
     photo: File
-    photoBase64String: string
+    photoBase64: string
     errorMessage: string
     isDisplayError: boolean
     isDisplayUploadSuccessful: boolean
@@ -28,14 +29,14 @@ export class UpdateCatalogComponent implements OnInit {
     public createCatalogItem() {
       this.isDisplayError = false
 
-      let photoId = this.generatePhotoId()
       var catalogItem = new CatalogItem(this.title, 
                                         this.brand,
                                         this.price, 
                                         this.description, 
                                         this.itemType,
-                                        this.photoBase64String)
+                                        new CatalogItemPhoto(this.photoBase64))
       
+      console.log(catalogItem)
       const createItemObservable =  this.catalogService.createCatalogItem(catalogItem);
       createItemObservable.subscribe(
         res => {
@@ -93,7 +94,7 @@ export class UpdateCatalogComponent implements OnInit {
  
   _handleReaderLoaded(readerEvt) {
       var binaryString = readerEvt.target.result;
-      this.photoBase64String = btoa(binaryString);  // Converting binary string data.
+      this.photoBase64 = btoa(binaryString);  // Converting binary string data.
  }
 
     private generatePhotoId() {
