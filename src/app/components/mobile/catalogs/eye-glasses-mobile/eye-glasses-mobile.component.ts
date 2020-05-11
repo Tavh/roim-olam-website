@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { CatalogItem } from 'src/app/shared/data/catalog-item.model';
-import { CatalogService } from 'src/app/shared/services/http-constructors/catalog.service';
-import { ItemType } from 'src/app/shared/data/enums/item-type';
+import { Component, OnInit } from "@angular/core"
+import { CatalogItem } from "src/app/shared/data/catalog-item.model"
+import { CatalogService } from "src/app/shared/services/http-constructors/catalog.service"
+import { ItemType } from "src/app/shared/data/enums/item-type"
 
 @Component({
-  selector: 'app-eye-glasses-mobile',
-  templateUrl: './eye-glasses-mobile.component.html',
-  styleUrls: ['./eye-glasses-mobile.component.css']
+    selector: "app-eye-glasses-mobile",
+    templateUrl: "./eye-glasses-mobile.component.html",
+    styleUrls: ["./eye-glasses-mobile.component.css"],
 })
 export class EyeGlassesMobileComponent implements OnInit {
-
     private photoAsEncodedBase64String: string
     public catalogItems: CatalogItem[]
     private brands: Set<String>
@@ -27,24 +26,30 @@ export class EyeGlassesMobileComponent implements OnInit {
             this.hideHighlightedProduct()
         }
     }
-    
+
     ngOnInit() {
-        this.highlightedProductContainer = document.getElementById("highlighted_product_info_container")
+        this.highlightedProductContainer = document.getElementById(
+            "highlighted_product_info_container"
+        )
     }
-    
+
     getCatalogItemsByType(page) {
         this.currentPage = page
-        const observable =  this.catalogService.getCatalogItemsByType(ItemType.EYE_GLASSES, page)
+        const observable = this.catalogService.getCatalogItemsByType(
+            ItemType.EYE_GLASSES,
+            page
+        )
         this.catalogItems = null
         observable.subscribe(
-            response => {
+            (response) => {
                 this.maxPages = response.body.pages
                 this.catalogItems = response.body.catalogItems
                 // this.brands = this.findAllBrandsInCurrentCatalog()
-        },
-        err => {
-          console.log(err)
-        })
+            },
+            (err) => {
+                console.log(err)
+            }
+        )
     }
 
     /* currently unused
@@ -74,12 +79,14 @@ export class EyeGlassesMobileComponent implements OnInit {
 
     displayHighlightedProduct(catalogItem: CatalogItem) {
         if (this.highlightedProductContainer == null) {
-            this.highlightedProductContainer = document.getElementById("highlighted_product_info_container")
+            this.highlightedProductContainer = document.getElementById(
+                "highlighted_product_info_container"
+            )
         }
         this.highlightedCatalogItem = catalogItem
         this.highlightedProductContainer.style.visibility = "visible"
     }
-    
+
     hideHighlightedProduct() {
         this.highlightedProductContainer.style.visibility = "hidden"
     }

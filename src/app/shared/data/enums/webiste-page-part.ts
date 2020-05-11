@@ -1,4 +1,4 @@
 export enum WebsitePagePart {
-  HEADER = "HEADER",
-  CONTENT = "CONTENT"
+    HEADER = "HEADER",
+    CONTENT = "CONTENT",
 }

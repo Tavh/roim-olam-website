@@ -1,28 +1,29 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit } from "@angular/core"
 
 @Component({
-  selector: 'app-buttons-mobile',
-  templateUrl: './buttons-mobile.component.html',
-  styleUrls: ['./buttons-mobile.component.css']
+    selector: "app-buttons-mobile",
+    templateUrl: "./buttons-mobile.component.html",
+    styleUrls: ["./buttons-mobile.component.css"],
 })
 export class ButtonsMobileComponent implements OnInit {
-
-    
-    constructor() { }
+    constructor() {}
 
     changeSubMenuState(subMenuId) {
         let subMenu = document.getElementById(subMenuId)
         let subMenuVisibility = subMenu.style.visibility
 
         switch (subMenuVisibility) {
-            case "hidden": this.viewSubMenu(subMenu)
-            break
+            case "hidden":
+                this.viewSubMenu(subMenu)
+                break
 
-            case "visible": this.hideSubMenu(subMenu)
-            break
+            case "visible":
+                this.hideSubMenu(subMenu)
+                break
 
-            default: this.viewSubMenu(subMenu)
-        } 
+            default:
+                this.viewSubMenu(subMenu)
+        }
     }
 
     private viewSubMenu(subMenu) {
@@ -44,7 +45,7 @@ export class ButtonsMobileComponent implements OnInit {
     closeSubMenus(excludedElement?) {
         let subMenus = Array.from(document.getElementsByClassName("sub_menu"))
 
-        subMenus.forEach(subMenu => {
+        subMenus.forEach((subMenu) => {
             if (subMenu != excludedElement) {
                 this.hideSubMenu(subMenu)
             }
@@ -53,13 +54,13 @@ export class ButtonsMobileComponent implements OnInit {
 
     closeMenu() {
         let menuToggler = document.getElementById("toggler")
-        let transparentScreenMask = document.getElementById("transparent_screen_mask")
+        let transparentScreenMask = document.getElementById(
+            "transparent_screen_mask"
+        )
 
-        transparentScreenMask.style.visibility = "hidden";
+        transparentScreenMask.style.visibility = "hidden"
         menuToggler.click()
     }
 
-    ngOnInit() {
-    }
-
+    ngOnInit() {}
 }
