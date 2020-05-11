@@ -10,7 +10,7 @@ import { DeviceDetectorService } from "ngx-device-detector"
 export class MainComponent implements OnInit {
     currentDevice: string
 
-    constructor(private deviceService: DeviceDetectorService) {
+    constructor() {
         if (window.innerWidth > 800) {
             this.currentDevice = "desktop"
         } else {
