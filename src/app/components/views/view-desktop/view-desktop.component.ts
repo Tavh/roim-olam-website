@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core"
 
 @Component({
-  selector: 'app-view-desktop',
-  templateUrl: './view-desktop.component.html',
-  styleUrls: ['./view-desktop.component.css']
+    selector: "app-view-desktop",
+    templateUrl: "./view-desktop.component.html",
+    styleUrls: ["./view-desktop.component.css"],
 })
 export class ViewDesktopComponent implements OnInit {
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    ngOnInit() {}
 }
