@@ -9,14 +9,11 @@ import { ItemType } from "src/app/shared/data/enums/item-type"
     styleUrls: ["./eye-glasses-mobile.component.css"],
 })
 export class EyeGlassesMobileComponent implements OnInit {
-    private photoAsEncodedBase64String: string
     public catalogItems: CatalogItem[]
-    private brands: Set<String>
     public highlightedCatalogItem: CatalogItem
     public maxPages: number
     public currentPage: number
     public highlightedProductContainer: HTMLElement
-    private displayNoDataFoundMessage: boolean
 
     constructor(private catalogService: CatalogService) {
         this.currentPage = 0
@@ -44,38 +41,12 @@ export class EyeGlassesMobileComponent implements OnInit {
             (response) => {
                 this.maxPages = response.body.pages
                 this.catalogItems = response.body.catalogItems
-                // this.brands = this.findAllBrandsInCurrentCatalog()
             },
             (err) => {
                 console.log(err)
             }
         )
     }
-
-    /* currently unused
-    getCatalogItemsByTypeAndBrand(brand: string) {
-        this.displayNoDataFoundMessage = false
-
-        this.catalogItems = null
-        const observable =  this.catalogService.getCatalogItemsByTypeAndBrand(ItemType.EYE_GLASSES,
-                                                                              brand)
-    
-        observable.subscribe(
-            
-            res => {
-                if (res.status != 200) {
-                    if (res.status == 209) {
-                        this.displayNoDataFoundMessage = true
-                    }
-                    this.catalogItems = []
-                } else {
-                    this.catalogItems = res.body
-                }
-        },
-        err => {
-          console.log(err)
-        })
-    } */
 
     displayHighlightedProduct(catalogItem: CatalogItem) {
         if (this.highlightedProductContainer == null) {
@@ -90,15 +61,4 @@ export class EyeGlassesMobileComponent implements OnInit {
     hideHighlightedProduct() {
         this.highlightedProductContainer.style.visibility = "hidden"
     }
-
-    /* currently unused
-    findAllBrandsInCurrentCatalog() {
-        let brands = new Set<String>();
-
-        this.catalogItems.forEach(c => {
-            brands.add(c.brand);
-        });
-
-        return brands;
-    } */
 }

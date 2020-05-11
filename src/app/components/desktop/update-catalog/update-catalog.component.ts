@@ -110,12 +110,5 @@ export class UpdateCatalogComponent implements OnInit {
         this.photoBase64 = btoa(binaryString) // Converting binary string data.
     }
 
-    private generatePhotoId() {
-        return (
-            Math.random().toString(36).substring(2, 15) +
-            Math.random().toString(36).substring(2, 15)
-        )
-    }
-
     ngOnInit() {}
 }

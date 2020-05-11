@@ -16,14 +16,6 @@ export class MainComponent implements OnInit {
         } else {
             this.currentDevice = "mobile"
         }
-
-        // if (deviceService.isDesktop()) {
-        //     this.currentDevice = 'desktop'
-        // }
-
-        // if (deviceService.isMobile()) {
-        //     this.currentDevice = 'mobile'
-        // }
     }
 
     ngOnInit() {}
