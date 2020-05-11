@@ -16,6 +16,7 @@ export class UpdateCatalogComponent implements OnInit {
     description: string
     itemType: string
     photo: File
+    photoBase64String: string
     errorMessage: string
     isDisplayError: boolean
     isDisplayUploadSuccessful: boolean
@@ -24,53 +25,17 @@ export class UpdateCatalogComponent implements OnInit {
       this.isDisplayUploadSuccessful = false
     }
   
-    public handlePhotoUpload(photos: FileList) {
-      this.photo = photos.item(0);
-    }
-  
     public createCatalogItem() {
       this.isDisplayError = false
 
-      let photoName = this.photo.name
-
-      if (!photoName.includes(GeneralConstants.JPG_POSTFIX) && !photoName.includes(GeneralConstants.JPEG_POSTFIX)) {
-          this.errorMessage = "Please use only JPG photos"
-          this.isDisplayError = true
-          return
-      }
-
-      let photoSize = this.photo.size
-
-      if (photoSize > GeneralConstants.MAX_PHOTO_SIZE) {
-        this.errorMessage = "File has exceeded max size of: " + GeneralConstants.MAX_PHOTO_SIZE
-        this.isDisplayError = true
-        return
-      } 
-
-        
       let photoId = this.generatePhotoId()
       var catalogItem = new CatalogItem(this.title, 
                                         this.brand,
                                         this.price, 
                                         this.description, 
                                         this.itemType,
-                                        photoId)
-
-      const uploadPhotoObservable = this.catalogService.uploadCatalogItemPhoto(this.photo, photoId);
-      uploadPhotoObservable.subscribe(
-        res => {
-          if (res.status != 201) {
-            this.errorMessage = res.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
-            this.isDisplayError = true
-          }
-      },
-      err=> {
-          console.log(err)
-          this.errorMessage = err.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
-          this.isDisplayError = true
-        }
-      )
-
+                                        this.photoBase64String)
+      
       const createItemObservable =  this.catalogService.createCatalogItem(catalogItem);
       createItemObservable.subscribe(
         res => {
@@ -88,9 +53,49 @@ export class UpdateCatalogComponent implements OnInit {
           this.isDisplayError = true
         }
       )
-  
     }
-    
+
+    private isFileFormatValid() {
+      let photoName = this.photo.name
+      if (!photoName.includes(GeneralConstants.JPG_POSTFIX) && !photoName.includes(GeneralConstants.JPEG_POSTFIX)) {
+        this.errorMessage = "Please use only JPG photos"
+        this.isDisplayError = true
+        return
+      }
+    }
+
+    private isFileSizeValid() {
+      let photoSize = this.photo.size
+      if (photoSize > GeneralConstants.MAX_PHOTO_SIZE) {
+        this.errorMessage = "File has exceeded max size of: " + GeneralConstants.MAX_PHOTO_SIZE
+        this.isDisplayError = true
+        return 
+      }
+    }
+
+    getFile(event) {
+      this.photo = event.target.files[0];
+      
+      this.isFileFormatValid()
+      if (!this.isFileFormatValid) {
+        return
+      }
+
+      this.isFileSizeValid()
+      if (!this.isFileSizeValid) {
+        return
+      }
+      
+      var reader = new FileReader();
+      reader.onload = this._handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(this.photo);
+  }
+ 
+  _handleReaderLoaded(readerEvt) {
+      var binaryString = readerEvt.target.result;
+      this.photoBase64String = btoa(binaryString);  // Converting binary string data.
+ }
+
     private generatePhotoId() {
       return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     }
