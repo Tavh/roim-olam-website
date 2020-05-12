@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core"
 import { CatalogItem } from "src/app/shared/data/catalog-item.model"
 import { CatalogService } from "src/app/shared/services/http-constructors/catalog.service"
-import { ItemType } from "src/app/shared/data/enums/item-type"
 import { SessionStorageManager } from 'src/app/shared/session-storage-manager'
 import { AuthenticationConstants } from 'src/app/shared/constants/authentication-constants.model'
 
