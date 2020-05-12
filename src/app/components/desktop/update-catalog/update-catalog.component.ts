@@ -20,6 +20,7 @@ export class UpdateCatalogComponent implements OnInit {
     photoBase64: string
     errorMessage: string
     isDisplayError: boolean
+    displayedErrorType: string
     isDisplayUploadSuccessful: boolean
 
     constructor(private catalogService: CatalogService) {
@@ -27,7 +28,7 @@ export class UpdateCatalogComponent implements OnInit {
     }
 
     public createCatalogItem() {
-        this.isDisplayError = false
+        this.turnOffError()
 
         var catalogItem = new CatalogItem(
             this.title,
@@ -38,17 +39,14 @@ export class UpdateCatalogComponent implements OnInit {
             new CatalogItemPhoto(this.photoBase64)
         )
 
-        console.log(catalogItem)
         const createItemObservable = this.catalogService.createCatalogItem(
             catalogItem
         )
         createItemObservable.subscribe(
             (res) => {
                 if (res.status != 201) {
-                    this.errorMessage = res.headers.get(
-                        ServerConstants.ERROR_MESSAGE_HEADER
-                    )
-                    this.isDisplayError = true
+                    let errorMessage = res.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
+                    this.displayError(GeneralConstants.SERVER_ERROR, errorMessage)
                     return
                 } else if (this.isDisplayError != true) {
                     this.isDisplayUploadSuccessful = true
@@ -59,47 +57,44 @@ export class UpdateCatalogComponent implements OnInit {
                 this.errorMessage = err.headers.get(
                     ServerConstants.ERROR_MESSAGE_HEADER
                 )
-                this.isDisplayError = true
+                this.displayError(this.errorMessage, GeneralConstants.SERVER_ERROR)
             }
         )
     }
 
     private isFileFormatValid() {
         let photoName = this.photo.name
-        if (
-            !photoName.includes(GeneralConstants.JPG_POSTFIX) &&
-            !photoName.includes(GeneralConstants.JPEG_POSTFIX)
-        ) {
-            this.errorMessage = "Please use only JPG photos"
-            this.isDisplayError = true
-            return
+        if (!photoName.includes(GeneralConstants.JPG_POSTFIX) &&
+            !photoName.includes(GeneralConstants.JPEG_POSTFIX)) {
+            let errorMessage = "Please use only JPG photos"
+            this.displayError(GeneralConstants.FILE_ERROR, errorMessage)
+            return false
         }
     }
 
     private isFileSizeValid() {
         let photoSize = this.photo.size
         if (photoSize > GeneralConstants.MAX_PHOTO_SIZE) {
-            this.errorMessage =
-                "File has exceeded max size of: " +
-                GeneralConstants.MAX_PHOTO_SIZE
-            this.isDisplayError = true
-            return
+            let errorMessage = `File has exceeded max size of: ${GeneralConstants.MAX_PHOTO_SIZE / GeneralConstants.MEGABYTE_FACTOR} MB`
+            this.displayError(GeneralConstants.FILE_ERROR, errorMessage)
+            return false
         }
     }
 
-    getFile(event) {
+    receiveFile(event) {
         this.photo = event.target.files[0]
 
-        this.isFileFormatValid()
-        if (!this.isFileFormatValid) {
+        if (!this.isFileFormatValid()) {
             return
         }
 
-        this.isFileSizeValid()
         if (!this.isFileSizeValid) {
             return
         }
 
+        if (this.displayedErrorType == GeneralConstants.FILE_ERROR) {
+            this.turnOffError()
+        }
         var reader = new FileReader()
         reader.onload = this._handleReaderLoaded.bind(this)
         reader.readAsBinaryString(this.photo)
@@ -110,5 +105,21 @@ export class UpdateCatalogComponent implements OnInit {
         this.photoBase64 = btoa(binaryString) // Converting binary string data.
     }
 
-    ngOnInit() {}
+    private displayError(errorType: string, errorMessage: string) {
+        this.isDisplayError = true
+        this.displayedErrorType = errorType
+        if (errorMessage == "" || errorMessage == null) {
+            this.errorMessage == GeneralConstants.DEFAULT_ERROR_MESSAGE
+        } else {
+            this.errorMessage = errorMessage
+        }
+    }
+
+    private turnOffError() {
+        this.isDisplayError = false
+        this.displayedErrorType = null
+        this.errorMessage = null
+    }
+
+    ngOnInit() { }
 }

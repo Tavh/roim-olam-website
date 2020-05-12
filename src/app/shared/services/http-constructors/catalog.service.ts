@@ -6,6 +6,7 @@ import { UserDetails } from "../../data/user.model"
 import { ItemType } from "../../data/enums/item-type"
 import { SessionStorageManager } from "../../session-storage-manager"
 import { CatalogItemsWrapper } from "../../data/catalog-items-wrapper"
+import { CatalogItemDeleteStatusWrapper } from '../../data/catalog-item-delete-status-wrapper.model'
 
 @Injectable({
     providedIn: "root",
@@ -46,6 +47,13 @@ export class CatalogService {
     public getCatalogItemsByTypeAndBrand(itemType: ItemType, brand: string) {
         return this.myHttpClient.get<CatalogItem[]>(
             `${ServerConstants.HOST_AND_PORT}/catalog/get-catalog-items-by-brand-and-type?itemType=${itemType}&brand=${brand}`,
+            { observe: "response", withCredentials: true }
+        )
+    }
+
+    public deleteCatalogItem(id: number) {
+        return this.myHttpClient.delete<CatalogItemDeleteStatusWrapper>(
+            `${ServerConstants.HOST_AND_PORT}/catalog/delete-catalog-item/${id}`,
             { observe: "response", withCredentials: true }
         )
     }

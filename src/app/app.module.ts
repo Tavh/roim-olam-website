@@ -17,19 +17,15 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { UpdateCatalogComponent } from './components/desktop/update-catalog/update-catalog.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
-import { SunGlassesMobileComponent } from './components/catalogs/sun-glasses-mobile/sun-glasses-mobile.component';
-import { ContactLensesMobileComponent } from './components/catalogs/contact-lenses-mobile/contact-lenses-mobile.component';
-import { GlassLensesMobileComponent } from './components/catalogs/glass-lenses-mobile/glass-lenses-mobile.component';
-import { EyeGlassesMobileComponent } from './components/catalogs/eye-glasses-mobile/eye-glasses-mobile.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
+import { ReloadCompComponent } from './components/reload-comp/reload-comp.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'contact-us', component: ContactUsComponent },
-    { path: 'eye-glasses-mobile', component: EyeGlassesMobileComponent },
-    { path: 'sun-glasses-mobile', component: SunGlassesMobileComponent },
-    { path: 'contact-lenses-mobile', component: ContactLensesMobileComponent },
-    { path: 'glass-lenses-mobile', component: GlassLensesMobileComponent },
+    { path: 'catalog', component: CatalogComponent },
     { path: 'update-catalog', component: UpdateCatalogComponent },
+    { path: 'reload', component: ReloadCompComponent },
     { path: 'login', component: LoginComponent },
     { path: '',
       redirectTo: '/home',
@@ -48,14 +44,12 @@ const appRoutes: Routes = [
     HeaderMobileComponent,
     ButtonsMobileComponent,
     HomeComponent,
-    EyeGlassesMobileComponent,
-    SunGlassesMobileComponent,
+    CatalogComponent,
     ContactUsComponent,
-    ContactLensesMobileComponent,
-    GlassLensesMobileComponent,
     UpdateCatalogComponent,
     LoginComponent,
     LogoutComponent,
+    ReloadCompComponent,
   ],
   imports: [
     BrowserModule,

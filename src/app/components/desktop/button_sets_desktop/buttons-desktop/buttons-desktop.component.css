@@ -68,7 +68,7 @@
 }
 
   /* Change color of dropdown links on hover */
-.drop_down_content a:hover {background-color: rgb(30, 30, 30);}
+.drop_down_content a:hover {background-color: rgb(30, 30, 30); cursor: pointer}
 
 /* Show the dropdown menu on hover */
 .drop_down:hover .drop_down_content {

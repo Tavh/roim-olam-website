@@ -37,19 +37,19 @@
 
             <br>
 
-            <textarea maxlength="70" name="description" #descriptionData="ngModel" [(ngModel)]="description" placeholder="...תיאור מוצר" ></textarea>
+            <textarea min="1" maxlength="70" name="description" #descriptionData="ngModel" [(ngModel)]="description" placeholder="...תיאור מוצר" ></textarea>
 
             <br>
             <br>
 
-            <input type="file" id="upload_photo" (change)="getFile($event)" name="photo"/>
+            <input type="file" id="upload_photo" (change)="receiveFile($event)" name="photo"/>
             
             <br>
             <br>
 
         </div>
 
-        <button id="submit_button"  (click)="createCatalogItem()">עדכן</button>
+        <button id="submit_button"  (click)="createCatalogItem()" [disabled]="this.photo == null || formData.form.invalid || this.isDisplayError == true">עדכן</button>
 
         <br>
         <br>
