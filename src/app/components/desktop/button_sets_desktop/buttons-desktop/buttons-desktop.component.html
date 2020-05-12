@@ -3,16 +3,16 @@
 <span id="glasses_menu" class="drop_down">
     <button class="drop_down_button" id="glasses_menu_button">מחלקת משקפיים</button>
     <div class="drop_down_content">
-        <a routerLink="/eye-glasses-mobile">משקפי ראייה</a>
-        <a routerLink="/sun-glasses-mobile">משקפי שמש</a>
+        <a (click)="forwardToCatalog(eyeGlassesType)">משקפי ראייה</a>
+        <a (click)="forwardToCatalog(sunGlassesType)">משקפי שמש</a>
     </div>
 </span>
 
 <span id="lenses_menu" class="drop_down">
     <button class="drop_down_button" id="lenses_menu_button">מחלקת עדשות</button>
     <div class="drop_down_content">
-        <a routerLink="/contact-lenses-mobile">עדשות מגע </a>
-        <a routerLink="/glass-lenses-mobile">עדשות למשקפיים</a>
+        <a (click)="forwardToCatalog(contactLensesType)">עדשות מגע </a>
+        <a (click)="forwardToCatalog(glassLensesType)">עדשות למשקפיים</a>
     </div>
 </span>
 

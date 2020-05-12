@@ -21,6 +21,14 @@ export class SessionStorageManager {
     sessionStorage.setItem(AuthenticationConstants.CURRENT_USER_SESSION_KEY, JSON.stringify(userDetails));
   }
 
+  public static setSessionStorageItem(key: string, value) {
+    sessionStorage.setItem(key, value)
+  }
+
+  public static getSessionStorageItem(key: string): any {
+    return sessionStorage.getItem(key)
+  }
+
   public static getSessionStorageUserDetails() {
     return JSON.parse(sessionStorage.getItem(AuthenticationConstants.CURRENT_USER_SESSION_KEY))
   }

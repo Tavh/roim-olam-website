@@ -1,14 +1,17 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, Input } from "@angular/core"
 import { CatalogItem } from "src/app/shared/data/catalog-item.model"
 import { CatalogService } from "src/app/shared/services/http-constructors/catalog.service"
 import { ItemType } from "src/app/shared/data/enums/item-type"
+import { SessionStorageManager } from 'src/app/shared/session-storage-manager'
+import { AuthenticationConstants } from 'src/app/shared/constants/authentication-constants.model'
 
 @Component({
     selector: "app-eye-glasses-mobile",
     templateUrl: "./eye-glasses-mobile.component.html",
-    styleUrls: ["./eye-glasses-mobile.component.css"],
+    styleUrls: ["./eye-glasses-mobile.component.css"]
 })
 export class EyeGlassesMobileComponent implements OnInit {
+    
     public catalogItems: CatalogItem[]
     public highlightedCatalogItem: CatalogItem
     public maxPages: number
@@ -33,7 +36,7 @@ export class EyeGlassesMobileComponent implements OnInit {
     getCatalogItemsByType(page) {
         this.currentPage = page
         const observable = this.catalogService.getCatalogItemsByType(
-            ItemType.EYE_GLASSES,
+            SessionStorageManager.getSessionStorageItem(AuthenticationConstants.CURRENT_CATALOG_TYPE_KEY),
             page
         )
         this.catalogItems = null
