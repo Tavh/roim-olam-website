@@ -12,15 +12,6 @@
         <!-- <p><button>🛒</button></p> -->
     </div>
 </div>
-
-<!-- 
-    <div class="row">
-        <div id="filter_container" *ngFor="let b of this.brands">
-            <button class="filter_button" (click)="getCatalogItemsByTypeAndBrand(b)">{{b}}</button>
-        </div>
-        <br>
-    </div>
-    <h2 id="no_data_found_message" *ngIf="this.displayNoDataFoundMessage">מצטערים, לא נמצאו מוצרים העונים על הגדרה זו</h2> -->
     
 <br>
     
@@ -40,7 +31,6 @@
       <p class="brand">{{c.brand}}</p>
       <br>
       <p class="price">{{c.price}}₪</p>
-      <!-- <p class="description">{{c.description}}</p> -->
       <!-- <p><button>🛒</button></p> -->
       <button (click)="displayHighlightedProduct(c)">...</button>
     </div>
