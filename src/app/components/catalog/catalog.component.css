@@ -285,7 +285,7 @@
 }
 
 @media only screen and (min-width: 700px) {
-    #eye_glasses_catalog_container {
+    #catalog_container {
         margin-left: 10%;
         margin-right: 10%;
         display: flex;

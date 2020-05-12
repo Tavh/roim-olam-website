@@ -29,7 +29,7 @@
     
 <div id="paging_buttons_container">
     <button id="previous_button" (click)="getCatalogItemsByType(this.currentPage - 1)" *ngIf="this.currentPage > 1">← הקודם</button>
-    <button id="next_button" (click)="getCatalogItemsByType(this.currentPage + 1)" *ngIf="this.currentPage <= this.maxPages">הבא →</button>
+    <button id="next_button" (click)="getCatalogItemsByType(this.currentPage + 1)" *ngIf="this.currentPage < this.maxPages">הבא →</button>
 </div>
 
 <div class="loader" *ngIf="this.catalogItems == null"></div>
