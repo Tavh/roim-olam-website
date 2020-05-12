@@ -26,7 +26,7 @@ export class ButtonsDesktopComponent implements OnInit {
         SessionStorageManager.setSessionStorageItem(AuthenticationConstants.CURRENT_CATALOG_TYPE_KEY, itemType)
 
         this.router.navigateByUrl('/reload', { skipLocationChange: true }).then(() => {
-            this.router.navigate(['/eye-glasses-mobile']);
+            this.router.navigate(['/catalog']);
         }); 
     } 
 
