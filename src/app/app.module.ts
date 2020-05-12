@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     { path: 'contact-us', component: ContactUsComponent },
     { path: 'eye-glasses-mobile', component: EyeGlassesMobileComponent },
     { path: 'update-catalog', component: UpdateCatalogComponent },
-    { path: 'reload', component: ReloadCompComponent }
+    { path: 'reload', component: ReloadCompComponent },
     { path: 'login', component: LoginComponent },
     { path: '',
       redirectTo: '/home',
