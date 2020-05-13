@@ -24,6 +24,7 @@ export class CatalogComponent implements OnInit {
     public itemDeletePromptContainer: HTMLElement
     public sessionUserDetails: UserDetails
     public currentItemNominatedForDeletion: CatalogItem
+    public isDisplayLoad: boolean
 
     ngOnInit() {
         this.itemDeletePromptContainer = document.getElementById(this.ITEM_DELETE_PROMPT_CONTAINER_ID)
@@ -46,6 +47,7 @@ export class CatalogComponent implements OnInit {
 
     getCatalogItemsByType(page: number) {
         this.currentPage = page
+        this.isDisplayLoad = true
         const observable = this.catalogService.getCatalogItemsByType(
             SessionStorageManager.getSessionStorageItem(GeneralConstants.CURRENT_CATALOG_TYPE_KEY),
             page
@@ -53,10 +55,14 @@ export class CatalogComponent implements OnInit {
         this.catalogItems = null
         observable.subscribe(
             (response) => {
+                if (response.status == ServerConstants.HTTP_NO_DATA_FOUND_sTATUS) {
+                    this.isDisplayLoad = false
+                }
                 this.maxPages = response.body.pages
                 this.catalogItems = response.body.catalogItems
             },
             (err) => {
+                this.isDisplayLoad == false
                 console.log(err)
             }
         )
@@ -77,8 +83,6 @@ export class CatalogComponent implements OnInit {
                 console.log(err)
             }
         )
-
-
     }
 
     prepareDeleteItemPrompt(catalogItem: CatalogItem) {

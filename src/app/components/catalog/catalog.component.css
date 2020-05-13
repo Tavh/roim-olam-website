@@ -130,6 +130,13 @@
     word-wrap: break-word;
 }
 
+#no_products_found_text {
+    font-size: 20;
+    margin-left: 45%;
+    margin-top: 15%;
+    position: fixed;
+    float: center;
+}
   
 #highlighted_product_info > img {
     width: 300px;

@@ -7,4 +7,5 @@ export class ServerConstants {
     public static readonly HTTP_PUT_SUCCESS_STATUS = 200
     public static readonly HTTP_DELETE_SUCCESS_STATUS = 200
     public static readonly HTTP_POST_SUCCESS_STATUS = 201
+    public static readonly HTTP_NO_DATA_FOUND_sTATUS = 209
 }
