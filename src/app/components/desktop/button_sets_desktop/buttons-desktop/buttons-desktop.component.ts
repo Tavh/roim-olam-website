@@ -3,7 +3,6 @@ import { SessionStorageManager } from "src/app/shared/session-storage-manager"
 import { UserDetails } from "src/app/shared/data/user.model"
 import { ItemType } from 'src/app/shared/data/enums/item-type'
 import { Router } from '@angular/router'
-import { AuthenticationConstants } from 'src/app/shared/constants/authentication-constants.model'
 import { GeneralConstants } from 'src/app/shared/constants/general-constants.model'
 
 @Component({
