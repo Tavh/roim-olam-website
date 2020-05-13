@@ -1,5 +1,8 @@
 <div id="page">
 
+    <br>
+    <br>
+    
     <form #formData="ngForm" *ngIf="sessionUserDetails.loginStatus != 'CONNECTED'">
 
         <label> <h3> : אנא הכנס/י פרטי הזדהות </h3> </label>
@@ -21,17 +24,17 @@
 
         </div>
 
-        <button id="login_button" [disabled]="formData.form.invalid" (click)="login()">התחבר</button>
+        <button id="login_button" (click)="login()">התחבר</button>
 
         <br>
         <br>
         
-        <div id="user_not_found_error" *ngIf="this.isDisplayError == true">
-            <span id="user_not_found_error_text">{{errorMessage}}</span>
+        <div id="error_message" *ngIf="this.isDisplayError == true">
+            <span id="error_message_text">{{this.errorMessage}}</span>
         </div>
     </form>
 
     <br>
     
-    <h3 *ngIf="sessionUserDetails.loginStatus == 'CONNECTED'"> {{sessionUserDetails.email}} has logged in successfully!</h3>
+    <h3 id="logged_in_successfully_text" *ngIf="sessionUserDetails.loginStatus == 'CONNECTED'">!התחבר בהצלחה {{sessionUserDetails.email}}</h3>
 </div>

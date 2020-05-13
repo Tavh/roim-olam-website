@@ -113,8 +113,6 @@
 
 #highlighted_product_info {
     position: fixed;
-    width: 500px;
-    height: 200px;
     margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
     left: 0;
     right: 0;
@@ -130,12 +128,18 @@
     word-wrap: break-word;
 }
 
+#no_products_found_text {
+    font-size: 24px;
+    margin-left: 43%;
+    margin-top: 13%;
+    position: fixed;
+    float: center;
+}
   
 #highlighted_product_info > img {
     width: 300px;
     height: 210px;
 }
-
 
 .screen_mask {
     position: fixed;

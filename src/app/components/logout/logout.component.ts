@@ -4,6 +4,7 @@ import { CookieService } from "ngx-cookie-service"
 import { AuthenticationService } from "src/app/shared/services/http-constructors/authentication.service"
 import { SessionStorageManager } from "src/app/shared/session-storage-manager"
 import { AuthenticationConstants } from "src/app/shared/constants/authentication-constants.model"
+import { Router } from '@angular/router'
 
 @Component({
     selector: "app-logout",
@@ -15,7 +16,8 @@ export class LogoutComponent implements OnInit {
 
     constructor(
         private myAuthenticationService: AuthenticationService,
-        private myCookieService: CookieService
+        private myCookieService: CookieService,
+        private router: Router
     ) {
         this.sessionUserDetails = SessionStorageManager.getSessionStorageUserDetails()
     }
@@ -24,7 +26,7 @@ export class LogoutComponent implements OnInit {
         const observable = this.myAuthenticationService.logout()
         observable.subscribe(
             (res) => {
-                alert(`Farewell, ${this.sessionUserDetails.email}!`)
+                alert(`${this.sessionUserDetails.email} מנתק את `)
                 sessionStorage.removeItem(
                     AuthenticationConstants.CURRENT_USER_SESSION_KEY
                 )
@@ -39,6 +41,9 @@ export class LogoutComponent implements OnInit {
                     JSON.stringify(userDetails)
                 )
                 SessionStorageManager.setSessionStorageUserDetails(userDetails)
+                this.router.navigateByUrl('/reload', { skipLocationChange: true }).then(() => {
+                    this.router.navigate(['/login']);
+                }); 
                 location.reload()
             },
             (err) => {

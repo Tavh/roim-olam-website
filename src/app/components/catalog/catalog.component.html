@@ -32,7 +32,8 @@
     <button id="next_button" (click)="getCatalogItemsByType(this.currentPage + 1)" *ngIf="this.currentPage < this.maxPages">הבא →</button>
 </div>
 
-<div class="loader" *ngIf="this.catalogItems == null"></div>
+<div class="loader" *ngIf="this.catalogItems == null && this.isDisplayLoad == true"></div>
+<p id="no_products_found_text" *ngIf="this.catalogItems == null && this.isDisplayLoad == false">לא נמצאו מוצרים להצגה</p>
 
 <div id="catalog_container" *ngIf="this.catalogItems != null">
     <div class="product_card" *ngFor="let c of this.catalogItems">

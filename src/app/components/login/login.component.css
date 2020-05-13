@@ -31,9 +31,10 @@
     color:rgb(107, 107, 107);
 }
 
-#user_not_found_error_text {
+#error_message_text {
     background:pink;
     color:red;
-    padding:1px;
-    font-size: 12px;
+    padding:2px;
+    border-radius: 15%;
+    font-size: 15px;
 }
