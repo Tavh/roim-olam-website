@@ -14,8 +14,8 @@
                 <a (click)='changeSubMenuState("glasses_sub_menu")'>משקפיים</a>
 
                 <ul id="glasses_sub_menu" class="sub_menu">
-                    <li><a href="#" (click)="closeMenu()" routerLink='/eye-glasses-mobile'>משקפי&nbsp;ראייה</a></li>
-                    <li><a href="#" (click)="closeMenu()" routerLink='/sun-glasses-mobile'>משקפי&nbsp;שמש</a></li>
+                    <li><a href="#" (click)="closeMenu()" (click)="forwardToCatalog(eyeGlassesType)" routerLink='/catalog'>משקפי&nbsp;ראייה</a></li>
+                    <li><a href="#" (click)="closeMenu()" (click)="forwardToCatalog(sunGlassesType)" routerLink='/catalog'>משקפי&nbsp;שמש</a></li>
                 </ul>
             </li>
             
@@ -23,8 +23,8 @@
                 <a (click)='changeSubMenuState("lenses_sub_menu")' >עדשות</a>
                 
                 <ul id="lenses_sub_menu" class="sub_menu">
-                    <li><a href="#" (click)="closeMenu()" routerLink='/contact-lenses-mobile'>עדשות&nbsp;מגע</a></li>
-                    <li><a href="#" (click)="closeMenu()" routerLink='/glass-lenses-mobile'>עדשות&nbsp;למשקפיים</a></li>
+                    <li><a href="#" (click)="closeMenu()" (click)="forwardToCatalog(contactLensesType)" routerLink='/catalog'>עדשות&nbsp;מגע</a></li>
+                    <li><a href="#" (click)="closeMenu()" (click)="forwardToCatalog(glassLensesType)" routerLink='/catalog'>עדשות&nbsp;למשקפיים</a></li>
                 </ul>
             </li>
         </ul>
