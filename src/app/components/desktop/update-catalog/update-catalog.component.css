@@ -5,8 +5,9 @@
 #error_message_text {
     background:pink;
     color:red;
-    padding:1px;
-    font-size: 12px;
+    padding:2px;
+    border-radius: 15%;
+    font-size: 15px;
 }
 
 #submit_button {

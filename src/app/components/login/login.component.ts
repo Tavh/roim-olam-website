@@ -47,14 +47,13 @@ export class LoginComponent implements OnInit {
                     SessionStorageManager.setSessionStorageUserDetails(
                         fetchedUserDetails
                     )
-                    this.router.navigateByUrl("/home")
                     location.reload()
+                } else {
+                    this.isDisplayError = true
+                    this.errorMessage = response.headers.get(
+                        ServerConstants.ERROR_MESSAGE_HEADER
+                    )
                 }
-
-                this.isDisplayError = true
-                this.errorMessage = response.headers.get(
-                    ServerConstants.ERROR_MESSAGE_HEADER
-                )
             },
             (err) => {
                 this.isDisplayError = true
