@@ -129,8 +129,8 @@
 }
 
 #no_products_found_text {
-    font-size: 30;
-    margin-left: 45%;
+    font-size: 24px;
+    margin-left: 43%;
     margin-top: 15%;
     position: fixed;
     float: center;
