@@ -130,8 +130,8 @@
 
 #no_products_found_text {
     font-size: 24px;
-    margin-left: 43%;
-    margin-top: 13%;
+    margin-left: 26%;
+    margin-top: 20%;
     position: fixed;
     float: center;
 }
@@ -289,6 +289,31 @@
 }
 
 @media only screen and (min-width: 700px) {
+    #highlighted_product_info {
+        position: fixed;
+        margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+        left: 0;
+        right: 0;
+        margin-top: 15%;
+        position: fixed;
+        z-index: 1;
+        height: 400px;
+        width: 300px;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+        font-family: arial;
+        word-wrap: break-word;
+    }
+    
+    #no_products_found_text {
+        font-size: 24px;
+        margin-left: 43%;
+        margin-top: 13%;
+        position: fixed;
+        float: center;
+    }
+
     #catalog_container {
         margin-left: 10%;
         margin-right: 10%;
