@@ -39,9 +39,8 @@ export class UpdateCatalogComponent implements OnInit {
             new CatalogItemPhoto(this.photoBase64)
         )
 
-        const createItemObservable = this.catalogService.createCatalogItem(
-            catalogItem
-        )
+        console.log(catalogItem)
+        const createItemObservable = this.catalogService.createCatalogItem(catalogItem)
         createItemObservable.subscribe(
             (res) => {
                 if (res.status != 201) {
@@ -70,6 +69,7 @@ export class UpdateCatalogComponent implements OnInit {
             this.displayError(GeneralConstants.FILE_ERROR, errorMessage)
             return false
         }
+        return true
     }
 
     private isFileSizeValid() {
@@ -79,16 +79,18 @@ export class UpdateCatalogComponent implements OnInit {
             this.displayError(GeneralConstants.FILE_ERROR, errorMessage)
             return false
         }
+        return true
     }
 
     receiveFile(event) {
+
         this.photo = event.target.files[0]
 
         if (!this.isFileFormatValid()) {
             return
         }
 
-        if (!this.isFileSizeValid) {
+        if (!this.isFileSizeValid()) {
             return
         }
 
@@ -103,6 +105,7 @@ export class UpdateCatalogComponent implements OnInit {
     _handleReaderLoaded(readerEvt) {
         var binaryString = readerEvt.target.result
         this.photoBase64 = btoa(binaryString) // Converting binary string data.
+        console.log(this.photoBase64)
     }
 
     private displayError(errorType: string, errorMessage: string) {
