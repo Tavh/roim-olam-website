@@ -43,7 +43,7 @@ export class UpdateCatalogComponent implements OnInit {
         const createItemObservable = this.catalogService.createCatalogItem(catalogItem)
         createItemObservable.subscribe(
             (res) => {
-                if (res.status != 201) {
+                if (res.status != ServerConstants.HTTP_POST_SUCCESS_STATUS) {
                     let errorMessage = res.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
                     this.displayError(GeneralConstants.SERVER_ERROR, errorMessage)
                     return

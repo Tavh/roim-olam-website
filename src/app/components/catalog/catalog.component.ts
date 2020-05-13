@@ -2,8 +2,9 @@ import { Component, OnInit } from "@angular/core"
 import { CatalogItem } from "src/app/shared/data/catalog-item.model"
 import { CatalogService } from "src/app/shared/services/http-constructors/catalog.service"
 import { SessionStorageManager } from 'src/app/shared/session-storage-manager'
-import { AuthenticationConstants } from 'src/app/shared/constants/authentication-constants.model'
 import { UserDetails } from 'src/app/shared/data/user.model'
+import { ServerConstants } from 'src/app/shared/constants/server-constants.model'
+import { GeneralConstants } from 'src/app/shared/constants/general-constants.model'
 
 @Component({
     selector: "app-catalog",
@@ -46,7 +47,7 @@ export class CatalogComponent implements OnInit {
     getCatalogItemsByType(page: number) {
         this.currentPage = page
         const observable = this.catalogService.getCatalogItemsByType(
-            SessionStorageManager.getSessionStorageItem(AuthenticationConstants.CURRENT_CATALOG_TYPE_KEY),
+            SessionStorageManager.getSessionStorageItem(GeneralConstants.CURRENT_CATALOG_TYPE_KEY),
             page
         )
         this.catalogItems = null
@@ -62,13 +63,13 @@ export class CatalogComponent implements OnInit {
     }
 
     deleteCatalogItem(id: number) {
-        this.hideDeleteItemPrompt()
-
         const observable = this.catalogService.deleteCatalogItem(id)
         observable.subscribe(
             (response) => {
-                if (response.status != 200) {
-
+                if (response.status == ServerConstants.HTTP_DELETE_SUCCESS_STATUS) {
+                    alert(`Removed, ${this.currentItemNominatedForDeletion.title}!`)
+                    this.hideDeleteItemPrompt()
+                    location.reload()
                 }
             },
             (err) => {
@@ -76,7 +77,7 @@ export class CatalogComponent implements OnInit {
             }
         )
 
-        location.reload()
+
     }
 
     prepareDeleteItemPrompt(catalogItem: CatalogItem) {
