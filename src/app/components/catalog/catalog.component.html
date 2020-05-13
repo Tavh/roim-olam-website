@@ -16,7 +16,7 @@
 <div id="item_delete_prompt_container">
     <div class="screen_mask"></div>
     <div id="item_delete_prompt" *ngIf="this.currentItemNominatedForDeletion != null">
-        <p id="item_delete_text">?"האם למחוק את פריט "{{this.currentItemNominatedForDeletion.title}}</p>
+        <p id="item_delete_text">?'האם למחוק את פריט '{{this.currentItemNominatedForDeletion.title}}</p>
         <br>
         <br>
         <button id="item_confirm_delete_button" (click)="deleteCatalogItem(this.currentItemNominatedForDeletion.id)">אישור</button>
