@@ -67,12 +67,13 @@ export class CatalogComponent implements OnInit {
         observable.subscribe(
             (response) => {
                 if (response.status == ServerConstants.HTTP_DELETE_SUCCESS_STATUS) {
-                    alert(`Removed, ${this.currentItemNominatedForDeletion.title}!`)
+                    alert(`Removed item '${this.currentItemNominatedForDeletion.title}'!`)
                     this.hideDeleteItemPrompt()
                     location.reload()
                 }
             },
             (err) => {
+                alert(`Removal of item '${this.currentItemNominatedForDeletion.title}' failed!`)
                 console.log(err)
             }
         )
