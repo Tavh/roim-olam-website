@@ -54,8 +54,8 @@
         <br>
         <br>
 
-        <div id="photo_name_already_exists" *ngIf="this.isDisplayError == true">
-            <span id="photo_name_already_exists_text">{{errorMessage}}</span>
+        <div id="error_message" *ngIf="this.isDisplayError == true">
+            <span id="error_message_text">{{this.errorMessage}}</span>
         </div>
 
         <h3 *ngIf="this.isDisplayUploadSuccessful == true" >{{title}} has been successfully uploaded</h3 >

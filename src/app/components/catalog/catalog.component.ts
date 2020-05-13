@@ -62,8 +62,8 @@ export class CatalogComponent implements OnInit {
                 this.catalogItems = response.body.catalogItems
             },
             (err) => {
-                this.isDisplayLoad == false
-                console.log(err)
+                this.isDisplayLoad = false
+                console.log(`Server error: ${err}`)
             }
         )
     }

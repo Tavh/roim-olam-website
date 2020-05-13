@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-#photo_name_already_exists_text {
+#error_message_text {
     background:pink;
     color:red;
     padding:1px;

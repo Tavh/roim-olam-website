@@ -53,10 +53,8 @@ export class UpdateCatalogComponent implements OnInit {
             },
             (err) => {
                 console.log(err)
-                this.errorMessage = err.headers.get(
-                    ServerConstants.ERROR_MESSAGE_HEADER
-                )
-                this.displayError(this.errorMessage, GeneralConstants.SERVER_ERROR)
+                let errorMessage = err.headers.get(ServerConstants.ERROR_MESSAGE_HEADER)
+                this.displayError(GeneralConstants.SERVER_ERROR, errorMessage)
             }
         )
     }
@@ -105,17 +103,16 @@ export class UpdateCatalogComponent implements OnInit {
     _handleReaderLoaded(readerEvt) {
         var binaryString = readerEvt.target.result
         this.photoBase64 = btoa(binaryString) // Converting binary string data.
-        console.log(this.photoBase64)
     }
 
     private displayError(errorType: string, errorMessage: string) {
-        this.isDisplayError = true
-        this.displayedErrorType = errorType
         if (errorMessage == "" || errorMessage == null) {
-            this.errorMessage == GeneralConstants.DEFAULT_ERROR_MESSAGE
+            this.errorMessage == "קקי בתחת"
         } else {
             this.errorMessage = errorMessage
+            this.displayedErrorType = errorType
         }
+        this.isDisplayError = true
     }
 
     private turnOffError() {
