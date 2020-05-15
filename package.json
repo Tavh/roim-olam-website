@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "aws-deploy": "aws s3 sync dist/roim-olam-website/ s3://roim-olam-website"
+    "aws-deploy": "aws s3 sync dist/roim-olam-website/ s3://herzlich-opt.co.il"
   },
   "private": false,
   "dependencies": {
