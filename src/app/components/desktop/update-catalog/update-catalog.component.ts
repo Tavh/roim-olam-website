@@ -62,7 +62,8 @@ export class UpdateCatalogComponent implements OnInit {
     private isFileFormatValid() {
         let photoName = this.photo.name
         if (!photoName.includes(GeneralConstants.JPG_POSTFIX) &&
-            !photoName.includes(GeneralConstants.JPEG_POSTFIX)) {
+            !photoName.includes(GeneralConstants.JPEG_POSTFIX) &&
+            !photoName.includes(GeneralConstants.JPG_CAPITAL_POSTFIX)) {
             let errorMessage = "Please use only JPG photos"
             this.displayError(GeneralConstants.FILE_ERROR, errorMessage)
             return false
