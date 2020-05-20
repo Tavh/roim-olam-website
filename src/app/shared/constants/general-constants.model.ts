@@ -1,6 +1,7 @@
 export class GeneralConstants {
     public static readonly JPG_POSTFIX = ".jpg"  
     public static readonly JPEG_POSTFIX = ".jpeg"
+    public static readonly JPG_CAPITAL_POSTFIX = ".JPG"
     public static readonly MAX_PHOTO_SIZE = 10000000
     public static readonly MEGABYTE_FACTOR = 1000000
 
